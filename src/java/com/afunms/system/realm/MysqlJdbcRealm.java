@@ -14,10 +14,15 @@ import com.afunms.common.base.ErrorMessage;
 import com.afunms.common.util.CommonAppUtil;
 import com.afunms.common.util.SessionConstant;
 import com.afunms.common.util.SysUtil;
+import com.afunms.system.dao.FunctionDao;
+import com.afunms.system.dao.RoleFunctionDao;
 import com.afunms.system.dao.SysLogDao;
 import com.afunms.system.dao.UserDao;
+import com.afunms.system.model.Function;
+import com.afunms.system.model.RoleFunction;
 import com.afunms.system.model.SysLog;
 import com.afunms.system.model.User;
+import com.afunms.system.util.CreateRoleFunctionTable;
 
 import java.util.List;
 
@@ -46,7 +51,13 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 		User user = (User)super.getAvailablePrincipal(principalCollection);
 		authorizationInfo.addRole(user.getRole()+"");
-		role_Function_list = getRoleFunctionListByRoleId(role_id);
+		
+		//类的名字不符合语法惯例，留作以后修改
+		RoleFunctionDao roleFunctionDao = new RoleFunctionDao();
+		List<RoleFunction> roleFunctionList = roleFunctionDao.findByRoleId(user.getRole()+"");
+		for(RoleFunction permission:roleFunctionList){
+			authorizationInfo.addObjectPermission(new WildcardPermission());
+		}
 		return authorizationInfo;
 	}
 
