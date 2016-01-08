@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="基础数据系统">
+   <device>
+      <id>net25</id>
+      <name>JCSJ1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>169</x>
+      <y>136</y>
+   </device>
+   <device>
+      <id>net21</id>
+      <name>JCSJ2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>360</x>
+      <y>138</y>
+   </device>
+</devices>
+

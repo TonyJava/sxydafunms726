@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataResult label="root">
+    <item label="32u">
+        <num32U type="int" label="1" />
+        <jglocality1>
+            <jgid>121</jgid>
+            <jgx>0</jgx>
+            <jgy>-25</jgy>
+            <jgz>0</jgz>
+            <jgname>c1-1</jgname>
+        </jglocality1>
+    </item>
+</DataResult>
+

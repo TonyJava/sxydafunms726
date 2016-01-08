@@ -1,0 +1,46 @@
+/* 页面样式 */
+#body{
+	/* 背景颜色 */
+	background:url("../image/global/bg.jpg");
+	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: "����";
+}
+
+/* 页面文字样式 */
+td {	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: "����"}
+li {	FONT-SIZE: 9pt; LINE-HEIGHT: 12pt; FONT-FAMILY: "����"}
+
+/* 所有的 table 默认样式*/
+table{
+	border:0;
+	margin:0;
+	border-collapse:collapse;
+	width:100%;
+}
+
+/* 所有的 td 默认样式*/
+td{
+	padding:0;
+}
+a:hover {	COLOR: #000066; TEXT-DECORATION: underline}
+a {	COLOR: #444488; TEXT-TRANSFORM: none; TEXT-DECORATION: none}
+
+
+/* 工具栏 头部样式*/
+.content-header{
+	background-image:url("../image/global/content_header_background.jpg");
+}
+
+/* 标题样式*/
+.content-title{
+	font-family:宋体, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	text-align:left;
+}
+
+
+/* 内容底部样式 */
+.content-footer{
+	background-image:url("../image/global/content_footer_background.jpg");
+}

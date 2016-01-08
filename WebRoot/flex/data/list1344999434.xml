@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="db550a" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="db550b" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxoaapp1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxoaapp2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxoadb1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxoadb2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="db570a" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="db570b" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="ISA-3560g-OA" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="SOC-3550-OA" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

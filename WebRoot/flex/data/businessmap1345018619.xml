@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="全面预算">
+   <device>
+      <id>net71</id>
+      <name>tbmapp</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>121</x>
+      <y>112</y>
+   </device>
+   <device>
+      <id>net70</id>
+      <name>tbmdb</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>257</x>
+      <y>110</y>
+   </device>
+   <device>
+      <id>net69</id>
+      <name>d1app</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>389</x>
+      <y>109</y>
+   </device>
+   <device>
+      <id>net68</id>
+      <name>d1db</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>514</x>
+      <y>109</y>
+   </device>
+</devices>
+

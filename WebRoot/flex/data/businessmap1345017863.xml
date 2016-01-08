@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="MIS系统">
+   <device>
+      <id>net24</id>
+      <name>misapp1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>536</x>
+      <y>206</y>
+   </device>
+   <device>
+      <id>net20</id>
+      <name>misapp2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>387</x>
+      <y>206</y>
+   </device>
+   <device>
+      <id>net30</id>
+      <name>misdb1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>100</x>
+      <y>211</y>
+   </device>
+   <device>
+      <id>net23</id>
+      <name>misdb2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>242</x>
+      <y>212</y>
+   </device>
+   <device>
+      <id>net145</id>
+      <name>soapsx1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>184</x>
+      <y>302</y>
+   </device>
+   <device>
+      <id>net146</id>
+      <name>soapsx2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>383</x>
+      <y>300</y>
+   </device>
+</devices>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="db01" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="db02" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="web01" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="web02" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

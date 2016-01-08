@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="JCSJ1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="JCSJ2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

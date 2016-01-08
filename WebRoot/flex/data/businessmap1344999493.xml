@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="IBM P780">
+   <device>
+      <id>net36</id>
+      <name>swgl1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>91</x>
+      <y>86</y>
+   </device>
+   <device>
+      <id>net35</id>
+      <name>swgl2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>223</x>
+      <y>87</y>
+   </device>
+   <device>
+      <id>net48</id>
+      <name>ldap1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>349</x>
+      <y>87</y>
+   </device>
+   <device>
+      <id>net47</id>
+      <name>ldap2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>486</x>
+      <y>90</y>
+   </device>
+   <device>
+      <id>net40</id>
+      <name>am1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>92</x>
+      <y>187</y>
+   </device>
+   <device>
+      <id>net39</id>
+      <name>am2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>223</x>
+      <y>188</y>
+   </device>
+   <device>
+      <id>net38</id>
+      <name>am3</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>344</x>
+      <y>190</y>
+   </device>
+   <device>
+      <id>net37</id>
+      <name>am4</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>487</x>
+      <y>190</y>
+   </device>
+   <device>
+      <id>net46</id>
+      <name>portal1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>95</x>
+      <y>271</y>
+   </device>
+   <device>
+      <id>net45</id>
+      <name>portal2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>222</x>
+      <y>277</y>
+   </device>
+   <device>
+      <id>net168</id>
+      <name>PingYang-NE20-2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>61</x>
+      <y>221</y>
+   </device>
+   <device>
+      <id>net170</id>
+      <name>大同NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>147</x>
+      <y>226</y>
+   </device>
+   <device>
+      <id>net185</id>
+      <name>阳泉NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>231</x>
+      <y>226</y>
+   </device>
+   <device>
+      <id>net179</id>
+      <name>长治NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>311</x>
+      <y>225</y>
+   </device>
+   <device>
+      <id>net183</id>
+      <name>晋城NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>400</x>
+      <y>225</y>
+   </device>
+   <device>
+      <id>net174</id>
+      <name>忻州NE20-2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>482</x>
+      <y>226</y>
+   </device>
+   <device>
+      <id>net172</id>
+      <name>吕梁NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>568</x>
+      <y>228</y>
+   </device>
+   <device>
+      <id>net181</id>
+      <name>临汾NE20-2</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>658</x>
+      <y>231</y>
+   </device>
+   <device>
+      <id>net173</id>
+      <name>运城NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>740</x>
+      <y>234</y>
+   </device>
+   <device>
+      <id>net178</id>
+      <name>晋中NE20-1</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>827</x>
+      <y>237</y>
+   </device>
+</devices>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="统一用户系统">
+   <device>
+      <id>net50</id>
+      <name>sxdsa</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>109</x>
+      <y>93</y>
+   </device>
+   <device>
+      <id>net49</id>
+      <name>sxdsb</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>257</x>
+      <y>89</y>
+   </device>
+   <device>
+      <id>net41</id>
+      <name>sxima</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>386</x>
+      <y>87</y>
+   </device>
+   <device>
+      <id>net29</id>
+      <name>getopt</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>519</x>
+      <y>88</y>
+   </device>
+</devices>
+

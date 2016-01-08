@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="tbmapp" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="tbmdb" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="d1app" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="d1db" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

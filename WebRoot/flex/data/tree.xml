@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder>
+   <folder id="" label="业务资源一览">
+      <folder id="bussiness3" label="ccc" dataSource="data/list1344998924.xml" xml="businessmap1344998924.xml">
+         <folder id="net32" label="sxoadb1(未知类型)" />
+         <folder id="net21" label="JCSJ2(未知类型)" />
+         <folder id="net107" label="ISA-3560g-OA(未知类型)" />
+         <folder id="net106" label="SOC-3550-OA(未知类型)" />
+      </folder>
+      <folder id="bussiness4" label="OA系统" dataSource="data/list1344999434.xml" xml="businessmap1344999434.xml">
+         <folder id="net31" label="db550a(未知类型)" />
+         <folder id="net42" label="db550b(未知类型)" />
+         <folder id="net28" label="sxoaapp1(未知类型)" />
+         <folder id="net27" label="sxoaapp2(未知类型)" />
+         <folder id="net32" label="sxoadb1(未知类型)" />
+         <folder id="net43" label="sxoadb2(未知类型)" />
+         <folder id="net26" label="db570a(未知类型)" />
+         <folder id="net58" label="db570b(未知类型)" />
+         <folder id="net107" label="ISA-3560g-OA(未知类型)" />
+         <folder id="net106" label="SOC-3550-OA(未知类型)" />
+      </folder>
+      <folder id="bussiness5" label="IBM P780" dataSource="data/list1344999493.xml" xml="businessmap1344999493.xml">
+         <folder id="net36" label="swgl1(未知类型)" />
+         <folder id="net35" label="swgl2(未知类型)" />
+         <folder id="net48" label="ldap1(未知类型)" />
+         <folder id="net47" label="ldap2(未知类型)" />
+         <folder id="net40" label="am1(未知类型)" />
+         <folder id="net39" label="am2(未知类型)" />
+         <folder id="net38" label="am3(未知类型)" />
+         <folder id="net37" label="am4(未知类型)" />
+         <folder id="net46" label="portal1(未知类型)" />
+         <folder id="net45" label="portal2(未知类型)" />
+         <folder id="net168" label="PingYang-NE20-2(未知类型)" />
+         <folder id="net170" label="大同NE20-1(未知类型)" />
+         <folder id="net185" label="阳泉NE20-1(未知类型)" />
+         <folder id="net179" label="长治NE20-1(未知类型)" />
+         <folder id="net183" label="晋城NE20-1(未知类型)" />
+         <folder id="net174" label="忻州NE20-2(未知类型)" />
+         <folder id="net172" label="吕梁NE20-1(未知类型)" />
+         <folder id="net181" label="临汾NE20-2(未知类型)" />
+         <folder id="net173" label="运城NE20-1(未知类型)" />
+         <folder id="net178" label="晋中NE20-1(未知类型)" />
+      </folder>
+      <folder id="bussiness6" label="MIS系统" dataSource="data/list1345017863.xml" xml="businessmap1345017863.xml">
+         <folder id="net24" label="misapp1(未知类型)" />
+         <folder id="net20" label="misapp2(未知类型)" />
+         <folder id="net30" label="misdb1(未知类型)" />
+         <folder id="net23" label="misdb2(未知类型)" />
+         <folder id="net145" label="soapsx1(未知类型)" />
+         <folder id="net146" label="soapsx2(未知类型)" />
+      </folder>
+      <folder id="bussiness7" label="账务系统" dataSource="data/list1345017909.xml" xml="businessmap1345017909.xml">
+         <folder id="net66" label="bzapp(未知类型)" />
+         <folder id="net65" label="bzdb(未知类型)" />
+         <folder id="net64" label="yqapp(未知类型)" />
+         <folder id="net57" label="yqdb(未知类型)" />
+      </folder>
+      <folder id="bussiness8" label="基础数据系统" dataSource="data/list1345017944.xml" xml="businessmap1345017944.xml">
+         <folder id="net25" label="JCSJ1(未知类型)" />
+         <folder id="net21" label="JCSJ2(未知类型)" />
+      </folder>
+      <folder id="bussiness9" label="网上培训" dataSource="data/list1345018586.xml" xml="businessmap1345018586.xml">
+         <folder id="net34" label="db01(未知类型)" />
+         <folder id="net44" label="db02(未知类型)" />
+         <folder id="net75" label="web01(未知类型)" />
+         <folder id="net9" label="web02(未知类型)" />
+      </folder>
+      <folder id="bussiness10" label="全面预算" dataSource="data/list1345018619.xml" xml="businessmap1345018619.xml">
+         <folder id="net71" label="tbmapp(未知类型)" />
+         <folder id="net70" label="tbmdb(未知类型)" />
+         <folder id="net69" label="d1app(未知类型)" />
+         <folder id="net68" label="d1db(未知类型)" />
+      </folder>
+      <folder id="bussiness12" label="统一用户系统" dataSource="data/list1345018960.xml" xml="businessmap1345018960.xml">
+         <folder id="net50" label="sxdsa(未知类型)" />
+         <folder id="net49" label="sxdsb(未知类型)" />
+         <folder id="net41" label="sxima(未知类型)" />
+         <folder id="net29" label="getopt(未知类型)" />
+      </folder>
+   </folder>
+</folder>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="sxdsa" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxdsb" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="sxima" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="getopt" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

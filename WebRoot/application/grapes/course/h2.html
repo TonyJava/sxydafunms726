@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>三样式的选项卡菜单</title>
+<meta http-equiv="content-type" content="text/html;charset=gb2312">
+<!--把下面代码加到<head>与</head>之间-->
+<style type="text/css">
+html,body{
+ padding:0;
+ margin:0;
+ background-color:#fff;
+ font-size:12px;
+ color:#333;
+ font-family:"宋体",Arial,Helvetica,sans-serif;
+}
+ul,li{ 
+ margin:0; 
+ padding:0;
+}
+a{
+ text-decoration:none;
+ color:#333333;
+}
+a:hover{
+ color:#a90000;
+ text-decoration:underline;
+}
+.unit{
+ border:1px solid #d4d4d4;
+ background:url(http://www.zzsky.cn/effect/images/201005121645/u_top.gif) repeat-x left top;
+ width:800px;
+ margin:20px auto;
+}
+.unit_title{
+ height:38px;
+ line-height:38px;
+ padding-left:13px;
+ font-weight:bold;
+ font-size:14px;
+}
+a.u_more{
+ float:right;
+ color:#a90000;
+ margin-right:10px;
+ font-size:12px;
+ font-weight:normal;
+}
+.u_tab_div a{
+ text-decoration:none;
+}
+.u_tab{
+ float:left;
+ background:url(http://www.zzsky.cn/effect/images/201005121645/tab_tip.gif) no-repeat right center;
+ padding:0 7px;
+ line-height:26px;
+ margin-top:9px;
+ color:#666;
+ font-weight:normal;
+}
+.u_tab_no{
+ float:left;
+ padding:0 7px;
+ line-height:26px;
+ margin-top:9px;
+ color:#666;
+ font-weight:normal;
+}
+.u_tab_hover{
+ float:left;
+ background:url(http://www.zzsky.cn/effect/images/201005121645/tab_hover.gif) no-repeat right center;
+ width:50px;
+ text-align:center;
+ line-height:26px;
+ margin-top:9px;
+ color:#666;
+ font-weight:normal;
+}
+.ul_news{
+ padding:5px 10px;
+ padding-bottom:0;
+}
+.ul_news li{
+ background:url() no-repeat left 11px;
+ list-style:none;
+ padding-left:10px;
+ line-height:24px;
+}
+.ul_news li cite{
+ font-style:normal;
+ color:#aaa;
+ float:right;
+}
+.ul_news li a{
+}
+.ul_news li span a{
+ color:#a90000;
+}
+</style>
+</head>
+<body>
+<!--把下面代码加到<body>与</body>之间-->
+<div>
+ <div class="unit">
+  <div class="unit_title">
+   <a href="#" class="u_more">更多>></a>
+   <div class="u_tab_div" id="tab01">
+    <span class="u_tab_no"><a href="#">民事</a></span>
+    <span class="u_tab_hover"><a href="#">刑事</a></span>
+    <span class="u_tab"><a href="#">行政</a></span>
+    <span class="u_tab"><a href="#">赔偿</a></span>
+    <span class="u_tab_no"><a href="#">执行</a></span>
+   </div>
+  </div>
+  <div id="tabCon01">
+   <ul class="ul_news" style="display:none">
+    <li><cite>12-20</cite><a href="#">民事一</a></li>    
+   </ul>
+   <ul class="ul_news">
+    <li><cite>12-20</cite><a href="#">刑事一</a></li>    
+   </ul>
+   <ul class="ul_news" style="display:none">
+    <li><cite>12-20</cite><a href="#">行政一</a></li>    
+   </ul>
+   <ul class="ul_news" style="display:none">
+    <li><cite>12-20</cite><a href="#">赔偿一</a></li>   
+   </ul>
+   <ul class="ul_news" style="display:none">
+    <li><cite>12-20</cite><a href="#">执行一</a></li>    
+   </ul>
+  </div>
+ </div>
+</div> 
+<script type="text/javascript">
+function tabAction(parNode,parCon){
+ var tabs = document.getElementById(parNode).getElementsByTagName("span");
+ var tabLength = tabs.length;
+ var tabCon = document.getElementById(parCon).getElementsByTagName("ul");
+ var tabConLength = tabCon.length;
+ //初始化tab和tab content
+ function initTab(){
+  for(var i=0;i<tabLength;i++){
+   tabs[i].className = "u_tab";
+  }
+  tabs[tabLength-1].className = "u_tab_no";
+ }
+ function initTabCon(){
+  for(var i=0;i<tabConLength;i++){
+   tabCon[i].style.display = "none";
+  }
+ }
+ for(var i=0;i<tabLength;i++){
+  tabs[i].theI = i;
+  tabs[i].onclick = function(){
+   var theI = this.theI;
+   //被点击的tab显示为选中状态，同时显示相应的content
+   initTab();
+   initTabCon();
+   this.className = "u_tab_hover";
+   tabCon[theI].style.display = "block";
+   //判断被点击tab的前一个tab,在非IE中可能为文本节点
+   if(this.previousSibling){
+    var preObj = this.previousSibling;
+    if(this.previousSibling.nodeType==1){
+     preObj.className = "u_tab_no";
+    }
+    else if(this.previousSibling.nodeType==3 && this.previousSibling.previousSibling){
+     preObj = this.previousSibling.previousSibling;
+     preObj.className = "u_tab_no";
+    }
+   }
+   //去掉锚点的虚线框
+   this.childNodes[0].blur();
+  }
+ }
+}
+tabAction("tab01","tabCon01");
+</script>
+<script type="text/javascript">
+var as = document.getElementById("tabCon01").getElementsByTagName("a");
+for(var i=0;i<as.length;i++){
+ as[i].href = "http://www.zzsky.cn";
+}
+</script>
+</body>
+</html>

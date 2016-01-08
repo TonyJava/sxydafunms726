@@ -1,0 +1,753 @@
+cmdbegin:collecttime
+2013-04-09 15:47:49
+cmdbegin:version
+Linux version 2.6.18-53.el5xen (brewbuilder@hs20-bc2-3.build.redhat.com) (gcc version 4.1.2 20070626 (Red Hat 4.1.2-14)) #1 SMP Wed Oct 10 17:06:12 EDT 2007
+cmdbegin:cpuconfig
+processor	: 0
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 1
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 2
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 3
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 4
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 5
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 6
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+processor	: 7
+model name	: Intel(R) Xeon(R) CPU           E5450  @ 3.00GHz
+cpu MHz		: 2992.576
+cache size	: 6144 KB
+cmdbegin:disk
+文件系统               1K-块        已用     可用 已用% 挂载点
+/dev/mapper/VolGroup00-LogVol00
+                     136678400  12824340 116799112  10% /
+/dev/sda1               101086     18893     76974  20% /boot
+tmpfs                  2007008         0   2007008   0% /dev/shm
+cmdbegin:diskperf
+Linux 2.6.18-53.el5xen (localhost.localdomain5) 	2013年04月09日
+
+15时47分49秒       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+15时47分50秒    dev8-0      1.05      0.00      8.42      8.00      0.00      0.00      0.00      0.00
+15时47分50秒  dev253-0      1.05      0.00      8.42      8.00      0.00      0.00      0.00      0.00
+15时47分50秒  dev253-1      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+15时47分50秒       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+15时47分51秒    dev8-0      3.00      0.00     96.00     32.00      0.02      5.33      5.33      1.60
+15时47分51秒  dev253-0     12.00      0.00     96.00      8.00      0.06      5.33      1.33      1.60
+15时47分51秒  dev253-1      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+15时47分51秒       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+15时47分52秒    dev8-0      1.01      0.00     16.16     16.00      0.00      0.00      0.00      0.00
+15时47分52秒  dev253-0      2.02      0.00     16.16      8.00      0.00      0.00      0.00      0.00
+15时47分52秒  dev253-1      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+Average:          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+Average:       dev8-0      1.70      0.00     40.82     24.00      0.01      3.20      3.20      0.54
+Average:     dev253-0      5.10      0.00     40.82      8.00      0.02      4.27      1.07      0.54
+Average:     dev253-1      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+cmdbegin:cpu
+Linux 2.6.18-53.el5xen (localhost.localdomain5) 	2013年04月09日
+
+15时47分52秒       CPU     %user     %nice   %system   %iowait    %steal     %idle
+15时47分53秒       all      0.17      0.00      0.00      0.69      0.00     99.14
+15时47分54秒       all      0.00      0.00      0.00      0.21      0.00     99.79
+15时47分55秒       all      0.00      0.00      0.00      0.00      0.00    100.00
+Average:          all      0.05      0.00      0.00      0.28      0.00     99.68
+cmdbegin:memory
+             total       used       free     shared    buffers     cached
+Mem:       4014080    2825052    1189028          0     220732    2146084
+-/+ buffers/cache:     458236    3555844
+Swap:      2031608          0    2031608
+cmdbegin:process
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   2056   628 ?        Ss   Mar25   0:00 init [5]                                              
+root         2  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/0]
+root         3  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/0]
+root         4  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/0]
+root         5  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/1]
+root         6  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/1]
+root         7  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/1]
+root         8  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/2]
+root         9  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/2]
+root        10  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/2]
+root        11  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/3]
+root        12  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/3]
+root        13  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/3]
+root        14  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/4]
+root        15  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/4]
+root        16  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/4]
+root        17  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/5]
+root        18  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/5]
+root        19  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/5]
+root        20  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/6]
+root        21  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/6]
+root        22  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/6]
+root        23  0.0  0.0      0     0 ?        S    Mar25   0:00 [migration/7]
+root        24  0.0  0.0      0     0 ?        SN   Mar25   0:00 [ksoftirqd/7]
+root        25  0.0  0.0      0     0 ?        S    Mar25   0:00 [watchdog/7]
+root        26  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/0]
+root        27  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/1]
+root        28  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/2]
+root        29  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/3]
+root        30  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/4]
+root        31  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/5]
+root        32  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/6]
+root        33  0.0  0.0      0     0 ?        S<   Mar25   0:00 [events/7]
+root        34  0.0  0.0      0     0 ?        S<   Mar25   0:00 [khelper]
+root        35  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kthread]
+root        37  0.0  0.0      0     0 ?        S<   Mar25   0:00 [xenwatch]
+root        38  0.0  0.0      0     0 ?        S<   Mar25   0:00 [xenbus]
+root        47  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/0]
+root        48  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/1]
+root        49  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/2]
+root        50  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/3]
+root        51  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/4]
+root        52  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/5]
+root        53  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/6]
+root        54  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kblockd/7]
+root        55  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kacpid]
+root       173  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/0]
+root       174  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/1]
+root       175  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/2]
+root       176  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/3]
+root       177  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/4]
+root       178  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/5]
+root       179  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/6]
+root       180  0.0  0.0      0     0 ?        S<   Mar25   0:00 [cqueue/7]
+root       184  0.0  0.0      0     0 ?        S<   Mar25   0:00 [khubd]
+root       186  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kseriod]
+root       268  0.0  0.0      0     0 ?        S    Mar25   0:00 [pdflush]
+root       269  0.0  0.0      0     0 ?        S    Mar25   0:00 [pdflush]
+root       270  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kswapd0]
+root       271  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/0]
+root       272  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/1]
+root       273  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/2]
+root       274  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/3]
+root       275  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/4]
+root       276  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/5]
+root       277  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/6]
+root       278  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aio/7]
+root       433  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kpsmoused]
+root       511  0.0  0.0      0     0 ?        S<   Mar25   0:00 [scsi_eh_0]
+root       512  0.0  0.0      0     0 ?        S<   Mar25   0:00 [aacraid]
+root       522  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/0]
+root       523  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/1]
+root       524  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/2]
+root       525  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/3]
+root       526  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/4]
+root       527  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/5]
+root       528  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/6]
+root       529  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata/7]
+root       530  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ata_aux]
+root       540  0.0  0.0      0     0 ?        S<   Mar25   0:00 [scsi_eh_1]
+root       541  0.0  0.0      0     0 ?        S<   Mar25   0:00 [scsi_eh_2]
+root       578  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ksnapd]
+root       581  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kjournald]
+root       614  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kauditd]
+root       648  0.0  0.0   2964  1432 ?        S<s  Mar25   0:00 /sbin/udevd -d
+root      2032  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/0]
+root      2033  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/1]
+root      2034  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/2]
+root      2036  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/3]
+root      2037  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/4]
+root      2038  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/5]
+root      2039  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/6]
+root      2040  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kmpathd/7]
+root      2065  0.0  0.0      0     0 ?        S<   Mar25   0:00 [kjournald]
+root      2336  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_mcast]
+root      2346  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ipoib]
+root      2359  0.0  0.0      0     0 ?        S<   Mar25   0:00 [local_sa]
+root      2369  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_addr_wq]
+root      2379  0.0  0.0      0     0 ?        S<   Mar25   0:00 [iw_cm_wq]
+root      2389  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/0]
+root      2390  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/1]
+root      2391  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/2]
+root      2392  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/3]
+root      2393  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/4]
+root      2394  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/5]
+root      2395  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/6]
+root      2396  0.0  0.0      0     0 ?        S<   Mar25   0:00 [ib_cm/7]
+root      2406  0.0  0.0      0     0 ?        S<   Mar25   0:00 [rdma_cm_wq]
+root      2416  0.0  0.0      0     0 ?        S<   Mar25   0:00 [sdp]
+root      2531  0.0  0.0   1832   388 ?        Ss   Mar25   0:00 iscsid
+root      2532  0.0  0.0   1876  1876 ?        S<Ls Mar25   0:00 iscsid
+root      2937  0.0  0.0  13096   728 ?        S<sl Mar25   0:00 auditd
+root      2939  0.0  0.0   9884  3856 ?        S<s  Mar25   0:00 python /sbin/audispd
+root      2954  0.0  0.2  10012  8652 ?        Ss   Mar25   0:00 /usr/sbin/restorecond
+root      2965  0.0  0.0   1716   584 ?        Ss   Mar25   0:00 syslogd -m 0
+root      2968  0.0  0.0   1668   400 ?        Ss   Mar25   0:00 klogd -x
+root      2980  0.0  0.0   2428   380 ?        Ss   Mar25   0:00 irqbalance
+root      3007  0.0  0.0   2148   544 ?        Ss   Mar25   0:00 mcstransd
+rpc       3020  0.0  0.0   1804   600 ?        Ss   Mar25   0:00 portmap
+root      3033  0.0  0.2  42416 10036 ?        Ssl  Mar25   0:00 /usr/bin/python -E /usr/sbin/setroubleshootd
+root      3054  0.0  0.0   1812   732 ?        Ss   Mar25   0:00 rpc.statd
+root      3097  0.0  0.0   5412   580 ?        Ss   Mar25   0:00 rpc.idmapd
+dbus      3117  0.0  0.0  13116  1188 ?        Ssl  Mar25   0:00 dbus-daemon --system
+root      3129  0.0  0.0   2140   736 ?        Ss   Mar25   0:00 /usr/sbin/hcid
+root      3135  0.0  0.0   1732   496 ?        Ss   Mar25   0:00 /usr/sbin/sdpd
+root      3175  0.0  0.0      0     0 ?        S<   Mar25   0:00 [krfcommd]
+root      3215  0.0  0.0  22960  1312 ?        Ssl  Mar25   0:00 pcscd
+root      3240  0.0  0.0   1904   448 ?        Ss   Mar25   0:00 /usr/bin/hidd --server
+root      3268  0.0  0.0   9372  1128 ?        Ssl  Mar25   0:00 automount
+root      3287  0.0  0.0   1664   520 ?        Ss   Mar25   0:00 /usr/sbin/acpid
+root      3298  0.0  0.0   5076   488 ?        Ss   Mar25   0:00 ./hpiod
+root      3305  0.0  0.1  14512  4588 ?        S    Mar25   0:00 python ./hpssd.py
+root      3320  0.0  0.0   6160  1032 ?        Ss   Mar25   0:00 /usr/sbin/sshd
+root      3331  0.0  0.0  10796  1984 ?        Ss   Mar25   0:00 cupsd
+root      3343  0.0  0.0   2700   896 ?        Ss   Mar25   0:00 xinetd -stayalive -pidfile /var/run/xinetd.pid
+root      3376  0.0  0.0   8968  1832 ?        Ss   Mar25   0:00 sendmail: accepting connections
+smmsp     3385  0.0  0.0   8032  1476 ?        Ss   Mar25   0:00 sendmail: Queue runner@01:00:00 for /var/spool/clientmqueue
+root      3396  0.0  0.0   1888   468 ?        Ss   Mar25   0:00 gpm -m /dev/input/mice -t exps2
+root      3407  0.0  0.0   6368  1196 ?        Ss   Mar25   0:00 crond
+xfs       3443  0.0  0.0   3932  1732 ?        Ss   Mar25   0:00 xfs -droppriv -daemon
+root      3464  0.0  0.0   2236   436 ?        Ss   Mar25   0:00 /usr/sbin/atd
+root      3487  0.0  0.0   3380   936 ?        S    Mar25   0:00 libvirt_qemud --system --daemon
+nobody    3670  0.0  0.0   1808   708 ?        S    Mar25   0:00 dnsmasq --keep-in-foreground --strict-order --bind-interfaces --pid-file  --conf-file  --listen-address 192.168.122.1 --except-interface lo --dhcp-leasefile=/var/lib/libvirt/dhcp-default.leases --dhcp-range 192.168.122.2,192.168.122.254
+root      3671  0.0  0.3  27384 12920 ?        S    Mar25   1:13 /usr/bin/python /usr/sbin/yum-updatesd
+avahi     3683  0.0  0.0   2692  1384 ?        Ss   Mar25   0:00 avahi-daemon: running [localhost.local]
+avahi     3684  0.0  0.0   2564   320 ?        Ss   Mar25   0:00 avahi-daemon: chroot helper
+68        3695  0.0  0.0   5780  3792 ?        Ss   Mar25   0:00 hald
+root      3696  0.0  0.0   3132   976 ?        S    Mar25   0:00 hald-runner
+68        3703  0.0  0.0   1992   776 ?        S    Mar25   0:00 hald-addon-acpi: listening on acpid socket /var/run/acpid.socket
+68        3712  0.0  0.0   1988   780 ?        S    Mar25   0:00 hald-addon-keyboard: listening on /dev/input/event0
+root      3718  0.0  0.0   1944   616 ?        S    Mar25   0:00 hald-addon-storage: polling /dev/hdc
+root      3720  0.0  0.0   1944   616 ?        S    Mar25   0:00 hald-addon-storage: polling /dev/sda
+root      3939  0.0  0.0   2168   912 ?        S    Mar25   0:00 xenstored --pid-file /var/run/xenstore.pid
+root      3995  0.0  0.0  13240  3872 ?        S    Mar25   0:00 python /usr/sbin/xend start
+root      3997  0.0  0.1  64460  4784 ?        Sl   Mar25   0:00 python /usr/sbin/xend start
+root      3999  0.0  0.0  13524   600 ?        Ssl  Mar25   0:00 blktapctrl
+root      4002  0.0  0.0  12192   376 ?        Sl   Mar25   0:00 xenconsoled --log none --log-dir /var/log/xen/console
+root      4323  0.0  0.0   5068   512 ?        Ss   Mar25   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+root      4337  0.0  0.0  29068   776 ?        S<sl Mar25   0:00 modclusterd
+root      4393  0.0  0.0   3800   388 ?        Ss   Mar25   0:00 /usr/sbin/oddjobd -p /var/run/oddjobd.pid -t 300
+root      4424  0.0  0.0   5460   636 ?        Ss   Mar25   0:00 /usr/sbin/saslauthd -m /var/run/saslauthd -a pam
+root      4425  0.0  0.0   5460   376 ?        S    Mar25   0:00 /usr/sbin/saslauthd -m /var/run/saslauthd -a pam
+root      4426  0.0  0.0   5460   364 ?        S    Mar25   0:00 /usr/sbin/saslauthd -m /var/run/saslauthd -a pam
+root      4427  0.0  0.0   5460   364 ?        S    Mar25   0:00 /usr/sbin/saslauthd -m /var/run/saslauthd -a pam
+root      4429  0.0  0.0   5460   364 ?        S    Mar25   0:00 /usr/sbin/saslauthd -m /var/run/saslauthd -a pam
+ricci     4435  0.0  0.0   8008   760 ?        S<s  Mar25   0:00 ricci -u 101
+root      4450  0.0  0.0   1928   340 ?        S    Mar25   0:00 /usr/sbin/smartd -q never
+root      4462  0.0  0.0   1652   436 tty1     Ss+  Mar25   0:00 /sbin/mingetty tty1
+root      4463  0.0  0.0   1652   436 tty2     Ss+  Mar25   0:00 /sbin/mingetty tty2
+root      4464  0.0  0.0   1648   432 tty3     Ss+  Mar25   0:00 /sbin/mingetty tty3
+root      4465  0.0  0.0   1652   456 tty4     Ss+  Mar25   0:00 /sbin/mingetty tty4
+root      4472  0.0  0.0   1648   452 tty5     Ss+  Mar25   0:00 /sbin/mingetty tty5
+root      4474  0.0  0.0   1648   432 tty6     Ss+  Mar25   0:00 /sbin/mingetty tty6
+root      4476  0.0  0.1  17844  4328 ?        Ss   Mar25   0:00 /usr/sbin/gdm-binary -nodaemon
+root      4571  0.0  0.0  16544  2364 ?        S    Mar25   0:00 /usr/sbin/gdm-binary -nodaemon
+root      4574  0.0  0.0  17844  1488 ?        S    Mar25   0:00 /usr/sbin/gdm-binary -nodaemon
+root      4575  0.0  0.1  11116  5084 tty7     Ss+  Mar25   0:01 /usr/bin/Xorg :0 -br -audit 0 -auth /var/gdm/:0.Xauth -nolisten tcp vt7
+gdm       4596  0.0  0.7 178404 29800 ?        Ss   Mar25   0:00 /usr/libexec/gdmgreeter
+oracle    4799  0.0  0.3 1273712 13248 ?       Ss   Mar25   0:00 ora_pmon_orcl
+oracle    4801  0.0  0.2 1273128 11392 ?       Ss   Mar25   0:00 ora_psp0_orcl
+oracle    4803  0.0  0.6 1273128 25336 ?       Ss   Mar25   0:00 ora_mman_orcl
+oracle    4805  0.0  6.5 1276216 262536 ?      Ss   Mar25   0:00 ora_dbw0_orcl
+oracle    4807  0.0  1.1 1288680 44380 ?       Ss   Mar25   0:02 ora_lgwr_orcl
+oracle    4809  0.0  0.7 1274660 28612 ?       Ss   Mar25   0:00 ora_ckpt_orcl
+oracle    4811  0.0  4.1 1274696 166328 ?      Ss   Mar25   0:08 ora_smon_orcl
+oracle    4813  0.0  0.4 1273128 18192 ?       Ss   Mar25   0:00 ora_reco_orcl
+oracle    4815  0.0  1.8 1274728 73732 ?       Ss   Mar25   0:04 ora_cjq0_orcl
+oracle    4817  0.0  5.1 1296256 206820 ?      Ss   Mar25   0:01 ora_mmon_orcl
+oracle    4819  0.0  0.4 1273128 17912 ?       Ss   Mar25   0:00 ora_mmnl_orcl
+oracle    4821  0.0  0.2 1273632 11468 ?       Ss   Mar25   0:00 ora_d000_orcl
+oracle    4823  0.0  0.2 1273708 11172 ?       Ss   Mar25   0:00 ora_s000_orcl
+oracle    4841  0.0  0.3 1273124 12716 ?       Ss   Mar25   0:00 ora_qmnc_orcl
+oracle    4861  0.0  3.0 1274720 123244 ?      Ss   Mar25   0:00 ora_q000_orcl
+oracle    4864  0.0  0.1  42352  6184 ?        Ssl  Mar25   0:00 /home/oracle/oracle/product/10.2.0/db_1/bin/tnslsnr LISTENER -inherit
+oracle    5286  0.0  0.2 1273124 11920 ?       Ss   Mar25   0:00 ora_q002_orcl
+cdag      5766  0.0  0.1  20040  7040 ?        S    Mar25   0:00 F001Req
+oracle    5768  0.0  0.8 1273636 35696 ?       Ss   Mar25   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdag      5777  0.0  0.1  19924  6992 ?        S    Mar25   0:00 F002Rsp
+oracle    5779  0.0  0.7 1273128 28564 ?       Ss   Mar25   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdag      5796  0.0  0.1  19924  6840 ?        S    Mar25   0:00 bridge
+oracle    5798  0.0  0.3 1273124 15784 ?       Ss   Mar25   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdag      5827  0.0  0.1  19708  6668 ?        S    Mar25   0:00 CupdTcp CUPDATA 192.16.200.165 1 40003 40002
+cdag      5841  0.0  0.1  19740  6700 ?        S    Mar25   0:00 BankYSrv BANK
+oracle    5930  0.0  2.8 1275744 113040 ?      Ss   Mar25   0:03 oracleorcl (LOCAL=NO)
+oracle    5932  0.0  2.8 1274660 112896 ?      Ss   Mar25   0:02 oracleorcl (LOCAL=NO)
+oracle    5934  0.0  3.1 1275724 125464 ?      Ss   Mar25   0:03 oracleorcl (LOCAL=NO)
+oracle    5936  0.0  3.0 1275740 121192 ?      Ss   Mar25   0:02 oracleorcl (LOCAL=NO)
+oracle    5938  0.0  2.8 1275688 115272 ?      Ss   Mar25   0:09 oracleorcl (LOCAL=NO)
+oracle    5940  0.0  2.7 1274680 111220 ?      Ss   Mar25   0:09 oracleorcl (LOCAL=NO)
+oracle    5942  0.0  2.9 1274684 116536 ?      Ss   Mar25   0:03 oracleorcl (LOCAL=NO)
+oracle    5944  0.0  2.9 1275708 116676 ?      Ss   Mar25   0:03 oracleorcl (LOCAL=NO)
+oracle    5946  0.0  2.8 1274696 112612 ?      Ss   Mar25   0:02 oracleorcl (LOCAL=NO)
+oracle    5948  0.0  2.8 1274180 114392 ?      Ss   Mar25   0:03 oracleorcl (LOCAL=NO)
+cdshfe2  12735  0.0  0.1  20032  7048 ?        S    Mar29   0:05 F001Req
+oracle   12737  0.0  1.7 1273652 69656 ?       Ss   Mar29   0:01 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdshfe2  12749  0.0  0.1  20032  7044 ?        S    Mar29   0:04 F001Req
+oracle   12751  0.0  1.9 1273648 79696 ?       Ss   Mar29   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdshfe2  12761  0.0  0.1  19916  7004 ?        S    Mar29   0:05 F002Rsp
+oracle   12763  0.0  1.7 1273124 71364 ?       Ss   Mar29   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdshfe2  12782  0.0  0.1  19912  6836 ?        S    Mar29   0:00 bridge
+oracle   12784  0.0  0.4 1273124 16060 ?       Ss   Mar29   0:00 oracleorcl (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+cdshfe2  12798  0.0  0.1  19708  6696 ?        S    Mar29   0:01 BankSCli BANK
+cdshfe2  12819  0.0  0.1  19708  6684 ?        S    Mar29   0:00 BankSSrv BANK
+cdag     14350  0.0  0.1  19720  6684 ?        S    Mar29   0:00 FromCupd CUPDATA 192.16.200.165 40003
+cdag     14351  0.0  0.1  19712  6692 ?        S    Mar29   0:00 ToCupd CUPDATA 192.16.200.165 40002
+root     21410  0.0  0.0   9132  2764 ?        Ss   12:49   0:00 sshd: root@pts/1,pts/0
+root     21412  0.0  0.0   5928  1608 pts/1    Ss   12:49   0:00 -bash
+root     22250  0.0  0.0   5624  1412 pts/0    Ss+  14:45   0:00 -bash
+oracle   22940  0.0  0.6 1273684 24460 ?       Ss   15:47   0:00 ora_j000_orcl
+root     22943  0.0  0.0   5580  1052 pts/1    S+   15:47   0:00 sh collection.sh
+root     22954  0.0  0.0   5356   940 pts/1    R+   15:47   0:00 ps aux
+cmdbegin:mac
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast qlen 1000
+    link/ether 00:21:5e:75:bb:88 brd ff:ff:ff:ff:ff:ff
+3: peth1: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 1000
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::fcff:ffff:feff:ffff/64 scope link 
+       valid_lft forever preferred_lft forever
+4: sit0: <NOARP> mtu 1480 qdisc noop 
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: virbr0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue 
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+6: vif0.0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+7: veth0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+8: vif0.1: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue 
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::fcff:ffff:feff:ffff/64 scope link 
+       valid_lft forever preferred_lft forever
+9: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue 
+    link/ether 00:21:5e:75:bb:8a brd ff:ff:ff:ff:ff:ff
+    inet 192.16.200.175/24 brd 192.16.200.255 scope global eth1
+    inet6 fe80::221:5eff:fe75:bb8a/64 scope link 
+       valid_lft forever preferred_lft forever
+10: vif0.2: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+11: veth2: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+12: vif0.3: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+13: veth3: <BROADCAST,MULTICAST> mtu 1500 qdisc noop 
+    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff
+14: xenbr1: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue 
+    link/ether fe:ff:ff:ff:ff:ff brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+cmdbegin:interface
+Linux 2.6.18-53.el5xen (localhost.localdomain5) 	2013年04月09日
+
+15时47分55秒     IFACE   rxpck/s   txpck/s   rxbyt/s   txbyt/s   rxcmp/s   txcmp/s  rxmcst/s
+15时47分56秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒     peth1      1.98      0.00    130.69      0.00      0.00      0.00      0.00
+15时47分56秒      sit0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒    virbr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒    vif0.0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒     veth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒    vif0.1      0.00      0.99      0.00     59.41      0.00      0.00      0.00
+15时47分56秒      eth1      0.99      0.00     59.41      0.00      0.00      0.00      0.00
+15时47分56秒    vif0.2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒     veth2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒    vif0.3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒     veth3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分56秒    xenbr1      0.99      0.00     45.54      0.00      0.00      0.00      0.99
+
+15时47分56秒     IFACE   rxpck/s   txpck/s   rxbyt/s   txbyt/s   rxcmp/s   txcmp/s  rxmcst/s
+15时47分57秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒     peth1      1.00      0.00     64.00      0.00      0.00      0.00      0.00
+15时47分57秒      sit0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒    virbr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒    vif0.0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒     veth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒    vif0.1      0.00      1.00      0.00     60.00      0.00      0.00      0.00
+15时47分57秒      eth1      1.00      0.00     60.00      0.00      0.00      0.00      0.00
+15时47分57秒    vif0.2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒     veth2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒    vif0.3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒     veth3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分57秒    xenbr1      1.00      0.00     46.00      0.00      0.00      0.00      1.00
+
+15时47分57秒     IFACE   rxpck/s   txpck/s   rxbyt/s   txbyt/s   rxcmp/s   txcmp/s  rxmcst/s
+15时47分58秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒     peth1      1.85      0.00    122.22      0.00      0.00      0.00      0.00
+15时47分58秒      sit0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒    virbr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒    vif0.0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒     veth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒    vif0.1      0.00      0.93      0.00     55.56      0.00      0.00      0.00
+15时47分58秒      eth1      0.93      0.00     55.56      0.00      0.00      0.00      0.00
+15时47分58秒    vif0.2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒     veth2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒    vif0.3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒     veth3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+15时47分58秒    xenbr1      0.93      0.00     42.59      0.00      0.00      0.00      0.93
+
+Average:        IFACE   rxpck/s   txpck/s   rxbyt/s   txbyt/s   rxcmp/s   txcmp/s  rxmcst/s
+Average:           lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:         eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:        peth1      1.62      0.00    106.15      0.00      0.00      0.00      0.00
+Average:         sit0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:       virbr0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:       vif0.0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:        veth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:       vif0.1      0.00      0.97      0.00     58.25      0.00      0.00      0.00
+Average:         eth1      0.97      0.00     58.25      0.00      0.00      0.00      0.00
+Average:       vif0.2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:        veth2      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:       vif0.3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:        veth3      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:       xenbr1      0.97      0.00     44.66      0.00      0.00      0.00      0.97
+cmdbegin:uname
+Linux localhost.localdomain5
+cmdbegin:usergroup
+root:x:0:root
+bin:x:1:root,bin,daemon
+daemon:x:2:root,bin,daemon
+sys:x:3:root,bin,adm
+adm:x:4:root,adm,daemon
+tty:x:5:
+disk:x:6:root
+lp:x:7:daemon,lp
+mem:x:8:
+kmem:x:9:
+wheel:x:10:root
+mail:x:12:mail,postfix,exim
+news:x:13:news
+uucp:x:14:uucp
+man:x:15:
+games:x:20:
+gopher:x:30:
+dip:x:40:
+ftp:x:50:
+lock:x:54:
+nobody:x:99:
+users:x:100:test
+rpm:x:37:
+dbus:x:81:
+utmp:x:22:
+utempter:x:35:
+avahi:x:70:
+mailnull:x:47:
+smmsp:x:51:
+nscd:x:28:
+floppy:x:19:
+vcsa:x:69:
+rpc:x:32:
+rpcuser:x:29:
+nfsnobody:x:65534:
+sshd:x:74:
+pcap:x:77:
+ntp:x:38:
+slocate:x:21:
+haldaemon:x:68:
+apache:x:48:
+distcache:x:94:
+postgres:x:26:
+mysql:x:27:
+dovecot:x:97:
+webalizer:x:67:
+squid:x:23:
+named:x:25:
+xfs:x:43:
+gdm:x:42:
+sabayon:x:86:
+postdrop:x:90:
+postfix:x:89:
+saslauth:x:76:cyrus
+ais:x:39:
+mailman:x:41:
+exim:x:93:
+ident:x:98:
+pvm:x:24:
+privoxy:x:73:
+quaggavt:x:85:
+quagga:x:92:
+radvd:x:75:
+screen:x:84:
+ldap:x:55:
+pkcs11:x:101:root
+radiusd:x:95:
+pegasus:x:65:
+tomcat:x:91:
+luci:x:102:
+piranha:x:60:
+ricci:x:103:
+oinstall:x:500:agfe,cdag,test
+dba:x:501:oracle,cdag
+agfe:x:502:
+cdag:x:503:
+cdshfe2:x:505:
+cmdbegin:user
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/etc/news:
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+rpm:x:37:37::/var/lib/rpm:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+avahi:x:70:70:Avahi daemon:/:/sbin/nologin
+mailnull:x:47:47::/var/spool/mqueue:/sbin/nologin
+smmsp:x:51:51::/var/spool/mqueue:/sbin/nologin
+nscd:x:28:28:NSCD Daemon:/:/sbin/nologin
+vcsa:x:69:69:virtual console memory owner:/dev:/sbin/nologin
+rpc:x:32:32:Portmapper RPC user:/:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+pcap:x:77:77::/var/arpwatch:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+haldaemon:x:68:68:HAL daemon:/:/sbin/nologin
+apache:x:48:48:Apache:/var/www:/sbin/nologin
+distcache:x:94:94:Distcache:/:/sbin/nologin
+postgres:x:26:26:PostgreSQL Server:/var/lib/pgsql:/bin/bash
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/bin/bash
+dovecot:x:97:97:dovecot:/usr/libexec/dovecot:/sbin/nologin
+webalizer:x:67:67:Webalizer:/var/www/usage:/sbin/nologin
+squid:x:23:23::/var/spool/squid:/sbin/nologin
+named:x:25:25:Named:/var/named:/sbin/nologin
+xfs:x:43:43:X Font Server:/etc/X11/fs:/sbin/nologin
+gdm:x:42:42::/var/gdm:/sbin/nologin
+sabayon:x:86:86:Sabayon user:/home/sabayon:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+amanda:x:33:6:Amanda user:/var/lib/amanda:/bin/bash
+cyrus:x:76:12:Cyrus IMAP Server:/var/lib/imap:/bin/bash
+ais:x:39:39:openais Standards Based Cluster Framework:/:/sbin/nologin
+mailman:x:41:41:GNU Mailing List Manager:/usr/lib/mailman:/sbin/nologin
+exim:x:93:93::/var/spool/exim:/sbin/nologin
+ident:x:98:98::/home/ident:/sbin/nologin
+pvm:x:24:24::/usr/share/pvm3:/bin/bash
+privoxy:x:73:73::/etc/privoxy:/sbin/nologin
+quagga:x:92:92:Quagga routing suite:/var/run/quagga:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+ldap:x:55:55:LDAP User:/var/lib/ldap:/bin/false
+radiusd:x:95:95:radiusd user:/:/bin/false
+pegasus:x:66:65:tog-pegasus OpenPegasus WBEM/CIM services:/var/lib/Pegasus:/sbin/nologin
+tomcat:x:91:91:Tomcat:/usr/share/tomcat5:/bin/sh
+luci:x:100:102::/var/lib/luci:/sbin/nologin
+piranha:x:60:60::/etc/sysconfig/ha:/sbin/nologin
+ricci:x:101:103::/var/lib/ricci:/sbin/nologin
+oracle:x:500:500::/home/oracle:/bin/bash
+agfe:x:502:500:agfe:/home/agfe:/bin/bash
+cdag:x:503:500:cdag:/home/cdag:/bin/ksh
+test:x:504:500::/home/test:/bin/bash
+cdshfe2:x:505:505::/home/cdshfe2:/bin/ksh
+cmdbegin:date
+2013年 04月 09日 星期二 15:47:58 CST
+cmdbegin:uptime
+ 15:47:58 up 14 days, 17:23,  2 users,  load average: 0.01, 0.01, 0.00
+cmdbegin:service
+NetworkManager 	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+NetworkManagerDispatcher	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+acpid          	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+amd            	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+anacron        	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+apmd           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+arptables_jf   	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+arpwatch       	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+atd            	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+auditd         	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+autofs         	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+avahi-daemon   	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+avahi-dnsconfd 	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+bgpd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+bluetooth      	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+bootparamd     	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+capi           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+clvmd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+cman           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+conman         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+cpuspeed       	0:关闭	1:启用	2:启用	3:启用	4:启用	5:启用	6:关闭
+crond          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+cups           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+cyrus-imapd    	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dc_client      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dc_server      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dhcdbd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dhcp6s         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dhcpd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dhcrelay       	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dnsmasq        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dovecot        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+dund           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+edac           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+firstboot      	0:关闭	1:关闭	2:关闭	3:启用	4:关闭	5:启用	6:关闭
+gfs            	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+gfs2           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+gpm            	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+haldaemon      	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+hidd           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+hplip          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+httpd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ibmasm         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+innd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ip6tables      	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+ipmi           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+iptables       	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+ipvsadm        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+irda           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+irqbalance     	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+iscsi          	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+iscsid         	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+isdn           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+kadmin         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+kdump          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+kprop          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+krb524         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+krb5kdc        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+kudzu          	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+ldap           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+libvirtd       	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+lisa           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+lm_sensors     	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+luci           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+lvm2-monitor   	0:关闭	1:启用	2:启用	3:启用	4:启用	5:启用	6:关闭
+mailman        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+mcstrans       	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+mdmonitor      	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+mdmpd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+messagebus     	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+microcode_ctl  	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+modclusterd    	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+multipathd     	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+mysqld         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+named          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+netconsole     	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+netfs          	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+netplugd       	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+network        	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+nfs            	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+nfslock        	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+nscd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ntpd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+oddjobd        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+openais        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+openibd        	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+ospf6d         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ospfd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+pand           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+pcscd          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+piranha-gui    	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+portmap        	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+postgresql     	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+privoxy        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+psacct         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+pulse          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+qdiskd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+radiusd        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+radvd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rarpd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rdisc          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+readahead_early	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+readahead_later	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:启用	6:关闭
+restorecond    	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+rgmanager      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rhnsd          	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+ricci          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+ripd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ripngd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rpcgssd        	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+rpcidmapd      	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+rpcsvcgssd     	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rstatd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rusersd        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+rwhod          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+saslauthd      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+scsi_reserve   	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+sendmail       	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+setroubleshoot 	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+smartd         	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+smb            	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+snmpd          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+snmptrapd      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+spamassassin   	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+squid          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+sshd           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+syslog         	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+sysstat        	0:关闭	1:关闭	2:启用	3:启用	4:关闭	5:启用	6:关闭
+tgtd           	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+tog-pegasus    	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+tomcat5        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+tux            	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+vncserver      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+vsftpd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:启用	6:关闭
+watchdog       	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+winbind        	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+wpa_supplicant 	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+xend           	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+xendomains     	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+xfs            	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+xinetd         	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
+ypbind         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+yppasswdd      	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ypserv         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+ypxfrd         	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+yum-updatesd   	0:关闭	1:关闭	2:关闭	3:启用	4:启用	5:启用	6:关闭
+zebra          	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭
+
+基于 xinetd 的服务：
+	amanda:        	关闭
+	amandaidx:     	关闭
+	amidxtape:     	关闭
+	auth:          	关闭
+	chargen-dgram: 	关闭
+	chargen-stream:	关闭
+	cvs:           	关闭
+	daytime-dgram: 	关闭
+	daytime-stream:	关闭
+	discard-dgram: 	关闭
+	discard-stream:	关闭
+	echo-dgram:    	关闭
+	echo-stream:   	关闭
+	eklogin:       	关闭
+	ekrb5-telnet:  	关闭
+	gssftp:        	关闭
+	klogin:        	关闭
+	krb5-telnet:   	关闭
+	kshell:        	关闭
+	ktalk:         	关闭
+	ntalk:         	关闭
+	rexec:         	关闭
+	rlogin:        	关闭
+	rsh:           	关闭
+	rsync:         	关闭
+	talk:          	关闭
+	tcpmux-server: 	关闭
+	telnet:        	启用
+	tftp:          	关闭
+	time-dgram:    	关闭
+	time-stream:   	关闭
+	uucp:          	关闭
+cmdbegin:end

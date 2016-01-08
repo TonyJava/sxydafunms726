@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="misapp1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="misapp2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="misdb1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="misdb2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="soapsx1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="soapsx2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

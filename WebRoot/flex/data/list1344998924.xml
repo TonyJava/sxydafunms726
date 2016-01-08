@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="sxoadb1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="JCSJ2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="ISA-3560g-OA" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="SOC-3550-OA" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

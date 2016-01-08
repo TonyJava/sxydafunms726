@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices title="账务系统">
+   <device>
+      <id>net66</id>
+      <name>bzapp</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>107</x>
+      <y>111</y>
+   </device>
+   <device>
+      <id>net65</id>
+      <name>bzdb</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>241</x>
+      <y>110</y>
+   </device>
+   <device>
+      <id>net64</id>
+      <name>yqapp</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>371</x>
+      <y>113</y>
+   </device>
+   <device>
+      <id>net57</id>
+      <name>yqdb</name>
+      <type>icon</type>
+      <iconUrl />
+      <x>500</x>
+      <y>113</y>
+   </device>
+</devices>
+

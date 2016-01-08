@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="swgl1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="swgl2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="ldap1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="ldap2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="am1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="am2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="am3" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="am4" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="portal1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="portal2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="PingYang-NE20-2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="大同NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="阳泉NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="长治NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="晋城NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="忻州NE20-2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="吕梁NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="临汾NE20-2" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="运城NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="晋中NE20-1" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item name="bzapp" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="bzdb" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="yqapp" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+   <item name="yqdb" typeName="示意" ping="0%" image="images/status_ok.gif" type=" " />
+</items>
+
