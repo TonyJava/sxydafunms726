@@ -25,6 +25,7 @@ import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.jfree.chart.ChartFactory;
@@ -148,6 +149,7 @@ import com.afunms.topology.model.MonitorNodeDTO;
 import com.afunms.topology.model.NodeMonitor;
 import com.afunms.util.AgentalarmControlutil;
 import com.cn.dhcc.util.license.LicenseUtil;
+
 
 
 
@@ -320,7 +322,9 @@ public class UserManager extends BaseManager implements ManagerInterface {
 	    return "/limited.jsp";
 
 	Subject subject = SecurityUtils.getSubject();
-    UsernamePasswordToken token = new UsernamePasswordToken(getParaValue("userid"), getParaValue("password"));
+	String password = getParaValue("password");
+	String hashedPassword =  (new Md5Hash(password)).toString().toUpperCase();
+    UsernamePasswordToken token = new UsernamePasswordToken(getParaValue("userid"),hashedPassword);
     
     try {
         //4、登录，即身份验证
@@ -1740,8 +1744,10 @@ public class UserManager extends BaseManager implements ManagerInterface {
      * 退出系统
      */
     private String logout() {
-	session.removeAttribute(SessionConstant.CURRENT_MENU);
-	session.removeAttribute(SessionConstant.CURRENT_USER);
+    Subject subject = SecurityUtils.getSubject();
+    subject.logout();
+//	session.removeAttribute(SessionConstant.CURRENT_MENU);
+//	session.removeAttribute(SessionConstant.CURRENT_USER);
 	return "/index.jsp";
     }
 

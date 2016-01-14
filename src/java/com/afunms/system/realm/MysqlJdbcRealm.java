@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.authz.permission.WildcardPermission;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.realm.Realm;
@@ -41,22 +42,23 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 
     @Override
     public boolean supports(AuthenticationToken token) {
-        return token instanceof UsernamePasswordToken; //ä»…æ”¯æŒUsernamePasswordTokenç±»å‹çš„Token
+        return token instanceof UsernamePasswordToken; //½öÖ§³ÖUsernamePasswordTokenÀàĞÍµÄToken
     }
 
    
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
 		// TODO Auto-generated method stub
+		logger.info("ÊÚÈ¨");
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-		User user = (User)super.getAvailablePrincipal(principalCollection);
-		authorizationInfo.addRole(user.getRole()+"");
+		User user = (User)principalCollection.getPrimaryPrincipal();
+		//authorizationInfo.addRole(user.getRole()+"");
 		
-		//ç±»çš„åå­—ä¸ç¬¦åˆè¯­æ³•æƒ¯ä¾‹ï¼Œç•™ä½œä»¥åä¿®æ”¹
+		//ÀàµÄÃû×Ö²»·ûºÏÓï·¨¹ßÀı£¬Áô×÷ÒÔºóĞŞ¸Ä
 		RoleFunctionDao roleFunctionDao = new RoleFunctionDao();
 		List<RoleFunction> roleFunctionList = roleFunctionDao.findByRoleId(user.getRole()+"");
-		for(RoleFunction permission:roleFunctionList){
-			authorizationInfo.addObjectPermission(new WildcardPermission());
+		for(RoleFunction roleFunction:roleFunctionList){
+			authorizationInfo.addStringPermission("menu:*:"+roleFunction.getFuncid());
 		}
 		return authorizationInfo;
 	}
@@ -65,22 +67,24 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
 
-        String username = (String)token.getPrincipal();  //å¾—åˆ°ç”¨æˆ·å
-        String password = (new Md5Hash(new String((char[])token.getCredentials()))).toString(); //å¾—åˆ°å¯†ç 
+        String username = (String)token.getPrincipal();
+        
+        String password = new String((char[])token.getCredentials());
+     
       
       
         UserDao dao = new UserDao();
-    	User vo = dao.findByLogin(username, password.toUpperCase());
+    	User vo = dao.findByUserId(username);
     
     	dao.close();
     	
-    	if (vo == null) // ç”¨æˆ·åæˆ–å¯†ç ä¸æ­£ç¡®
+    	if (vo == null) 
     	{
-    		throw new  AuthenticationException();
+    		throw new  UnknownAccountException();
     	}
 
-    	logger.info("ç”¨æˆ·"+username+"ç™»å½•æˆåŠŸ");
-        //å¦‚æœèº«ä»½è®¤è¯éªŒè¯æˆåŠŸï¼Œè¿”å›ä¸€ä¸ªAuthenticationInfoå®ç°ï¼›
-        return new SimpleAuthenticationInfo(vo, password, getName());
+    	logger.info("ÓÃ»§"+username+"µÇÂ¼³É¹¦");
+        //Èç¹ûÉí·İÈÏÖ¤ÑéÖ¤³É¹¦£¬·µ»ØÒ»¸öAuthenticationInfoÊµÏÖ£»
+        return new SimpleAuthenticationInfo(vo, vo.getPassword(), getName());
     }
 }

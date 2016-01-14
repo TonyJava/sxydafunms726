@@ -77,6 +77,30 @@ public class UserDao extends BaseDao implements DaoInterface
       return vo;
    }
 
+   /**
+    * 按用户ID找一条记录,用于登录
+    * @param id 用户id，一般对应登录框中的用户名
+    */
+   public User findByUserId(String id)
+   {
+      User vo = null;
+      try
+      {
+          rs = conn.executeQuery("select * from system_user where user_id='" + id + "'");
+          if(rs.next())
+             vo = (User)loadFromRS(rs);
+      }
+      catch(Exception e)
+      {
+          SysLogger.error("UserDao.findByLogin",e);
+          vo = null;
+      }
+      finally
+      {
+          conn.close();
+      }
+      return vo;
+   }
    public boolean save(BaseVo baseVo)
    {
 	   return false;	   

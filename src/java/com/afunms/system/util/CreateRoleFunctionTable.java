@@ -3,11 +3,17 @@ package com.afunms.system.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import com.afunms.common.util.SysLogger;
 import com.afunms.system.dao.RoleFunctionDao;
 import com.afunms.system.dao.FunctionDao;
 import com.afunms.system.model.Function;
 import com.afunms.system.model.RoleFunction;
+import com.afunms.system.model.User;
 
 public class CreateRoleFunctionTable {
 	private List<Function> allfunction = new ArrayList<Function>();//所有的function;
@@ -40,7 +46,7 @@ public class CreateRoleFunctionTable {
 		List<Function> role_Function_list  = null;
 		String menuTable = null;
 		try{
-			role_Function_list = getRoleFunctionListByRoleId(role_id);
+			role_Function_list = getRoleFunctionList();    //getRoleFunctionListByRoleId(role_id);
 			getAllFuctionChildByRoot(root,role_Function_list);
 			function_table.add(root);
 			menuTable = createPageFunctionTable(function_table);
@@ -95,6 +101,57 @@ public class CreateRoleFunctionTable {
 		
 	}
 	
+	/**
+	 * 
+	 * @param role_id
+	 * @return
+	 */
+	public  List<Function> getRoleFunctionList(){
+		FunctionDao  functiondao = null;
+	    List<Function> functionList = new ArrayList<Function>();
+	    //0代表是超级用户 直接不检查菜单权限 将所有菜单都载入
+	   Subject subject =  SecurityUtils.getSubject();
+	   User user = (User)subject.getPrincipal();
+	   
+		if("0".equals(user.getRole())){
+			try{
+				functiondao = new FunctionDao();  
+				allfunction = functiondao.loadAll();
+				functionList = allfunction;  
+			}catch(Exception e){
+				SysLogger.error("Error in CreateRoleFunctionTable.getRoleFunctionListByRoleId()",e);
+			    e.printStackTrace();
+			}finally{
+				functiondao.close();
+			}
+			return functionList;
+		}
+		
+		//取出所有菜单项做权限检查
+		try{
+
+			functiondao = new FunctionDao();  
+			allfunction = functiondao.loadAll();
+			
+			for(Function function:allfunction){
+				
+				if(subject.isPermitted("menu:*:"+function.getId())){
+					logger.info("菜单"+function.getId()+"---"+function.getCh_desc()+"---已授权");
+					functionList.add(function);
+				}
+			}
+	
+	        
+		}catch(Exception e){
+			SysLogger.error("Error in CreateRoleFunctionTable.getRoleFunctionListByRoleId()",e);
+		    e.printStackTrace();
+		}finally{
+			functiondao.close();
+		}
+		return functionList;
+		
+	}
+	private final Log logger = LogFactory.getLog(CreateRoleFunctionTable.class);
 	/**
 	 * 在functionList中找出root下的所有子function(包括二级子菜单，三级子菜单...)
 	 * @param root
