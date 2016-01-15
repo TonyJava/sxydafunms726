@@ -424,7 +424,10 @@ public class UserManager extends BaseManager implements ManagerInterface {
     }
 
     public void getHome() {
-	User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+    	Subject subject = SecurityUtils.getSubject();
+    
+    	User vo = (User)subject.getPrincipal();
+//	User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
 	// Date d = new Date();
 	// SimpleDateFormat sdf0 = new SimpleDateFormat("yyyy-MM-dd");
 	// String startdate = sdf0.format(d);
@@ -1037,7 +1040,8 @@ public class UserManager extends BaseManager implements ManagerInterface {
     }
 
     public void getPersonHome() {
-	User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+    	User vo = (User) SecurityUtils.getSubject().getPrincipal();
+//	User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
 	Date d = new Date();
 	SimpleDateFormat sdf0 = new SimpleDateFormat("yyyy-MM-dd");
 	String startdate = sdf0.format(d);
@@ -4315,8 +4319,9 @@ public class UserManager extends BaseManager implements ManagerInterface {
      * @return
      */
     public String getBidSql() {
-	User current_user = (User) session
-		.getAttribute(SessionConstant.CURRENT_USER);
+    	User current_user = (User)SecurityUtils.getSubject().getPrincipal();
+	/*User current_user = (User) session
+		.getAttribute(SessionConstant.CURRENT_USER);*/
 
 	StringBuffer s = new StringBuffer();
 	int _flag = 0;
