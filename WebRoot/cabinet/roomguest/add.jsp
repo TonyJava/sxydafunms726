@@ -6,7 +6,7 @@
 <%@page import="com.afunms.system.model.User"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-
+<%@page import="org.apache.shiro.SecutiryUtils"%>
 
 <%
   String rootPath = request.getContextPath();
@@ -14,7 +14,7 @@
   List roomList=(List)request.getAttribute("roomList");
   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String time = sdf.format(new Date());
-  User user = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+  User user = (User) SecurityUtils.getSubject().getPrincipal();
   String username="";
   if(user!=null)
   username=user.getName();

@@ -19,6 +19,7 @@
 <%@ page import="com.afunms.event.dao.*"%>
 <%@ page import="com.afunms.system.model.User"%>
 <%@page import="com.afunms.common.util.*"%>
+<%@page import="org.apache.shiro.SecurityUtils "%>
  <%
     String rootPath = request.getContextPath();
     EventList eventdetail = (EventList) request.getAttribute("eventList");
@@ -48,7 +49,7 @@
     java.text.SimpleDateFormat sdf0 = new java.text.SimpleDateFormat(
 		    "yyyy-MM-dd");
     String nowtime = sdf0.format(new Date());
-    User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+    User vo = (User) SecurityUtils.getSubject().getPrincipal();
     String username = vo.getName();
     session.setAttribute("idforknowledge", eventid);
 %>

@@ -9,7 +9,6 @@
 <%
 	JspPage jp = (JspPage) request.getAttribute("page");
 	String rootPath = request.getContextPath();
-	User current_user = (User) session.getAttribute(SessionConstant.CURRENT_USER);
 	List list = null;
 	LsfClassProcessMonitoringDao dao = new LsfClassProcessMonitoringDao();
 	list = dao.loadFormLsfClass();

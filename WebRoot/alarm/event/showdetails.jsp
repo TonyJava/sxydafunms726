@@ -8,6 +8,7 @@
 <%@page import="com.afunms.system.model.User"%>
 <%@page import="com.afunms.common.util.SessionConstant"%>
 <%@page import="com.afunms.event.model.EventReport"%>
+<%@page import="org.apache.shiro.SecurityUtils"%>
 <%@ include file="/include/globe.inc"%>
 
 <%
@@ -15,7 +16,7 @@
 	String menuTable = (String)request.getAttribute("menuTable");
 	List list = (List)request.getAttribute("list");
 	JspPage jp = (JspPage)request.getAttribute("page");
-	User vo = (User)session.getAttribute(SessionConstant.CURRENT_USER);
+	User vo = (User)SecurityUtils.getSubject().getPrincipal();
 	String username = vo.getName();	
 	 
 	String nodeId = (String)request.getAttribute("nodeId");
