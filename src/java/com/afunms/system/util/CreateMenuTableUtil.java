@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.afunms.common.util.SessionConstant;
 import com.afunms.common.util.SysLogger;
 import com.afunms.initialize.ResourceCenter;
@@ -84,9 +86,9 @@ public class CreateMenuTableUtil {
 		}
 		String rootNode = null;
 		//遇见首页之间返回 0 
-		if(jsp.contains("common/top.jsp")){
+		/*if(jsp.contains("common/top.jsp")){
 			return "0";
-		}
+		}*/
 		String[] menu_list = jsp.split("/");
 		if(menu_list!=null&&menu_list.length>=1){
 			for(int j = menu_list.length-1 ; j>=0;j--){
@@ -108,7 +110,7 @@ public class CreateMenuTableUtil {
 		try{
 			String rootPath = request.getContextPath(); 
 			HttpSession session = request.getSession();
-		    User user = (User)session.getAttribute(SessionConstant.CURRENT_USER);
+		    User user = (User)SecurityUtils.getSubject().getPrincipal();
 		    if(user!=null){
 		    	CreateRoleFunctionTable crft = new CreateRoleFunctionTable(rootPath); 
 		    	//0 代表此页面是否为头菜单页面(/common/top.jsp)
@@ -127,5 +129,25 @@ public class CreateMenuTableUtil {
 			e.printStackTrace();
 		}
 		return;
+	}
+	/**
+	 *  根据一级菜单 和 request 创建具体菜单
+	 * @param rootNode
+	 * @param request
+	 */
+	public void createMenu(String rootNode ,HttpServletRequest request){
+
+		String rootPath = request.getContextPath(); 
+	    User user = (User)SecurityUtils.getSubject().getPrincipal();
+	    if(user!=null){
+	    	CreateRoleFunctionTable crft = new CreateRoleFunctionTable(rootPath); 
+
+    		List<Function> list = crft.getRoleFunctionListByRoleId(String.valueOf(user.getRole()));
+    		List<Function> menuRoot_list = crft.getAllMenuRoot(list);
+    
+    		String menuTable = crft.getPageFunctionTable(rootNode, String.valueOf(user.getRole()));
+    	
+	    }
+	
 	}
 }

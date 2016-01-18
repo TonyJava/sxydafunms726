@@ -1,11 +1,13 @@
 package com.afunms.system.dao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.afunms.common.base.BaseDao;
 import com.afunms.common.base.BaseVo;
 import com.afunms.common.base.DaoInterface;
 import com.afunms.common.util.SysLogger;
-
 import com.afunms.system.model.Function;
 
 /**
@@ -171,4 +173,29 @@ public class FunctionDao extends BaseDao implements DaoInterface{
 			return function;
 	}
 
+	/**
+	 * 
+	 * @param roleId 角色标识
+	 * @return 角色roleId可以访问的菜单项列表
+	 */
+	public List<Function> findByRole(String roleId){
+
+		List<Function> functionList = new ArrayList();
+		try{
+			
+			String sql = "SELECT nms_func.* FROM nms_role_func INNER JOIN nms_func ON nms_role_func.funcid  = nms_func.id	WHERE roleid="+roleId;
+			rs = conn.executeQuery(sql);
+			while(rs.next()){
+				functionList.add((Function)loadFromRS(rs));
+			}
+			
+		}catch(Exception e){
+			SysLogger.error("FunctionDao.findFunctionByFuncId()",e);
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		return functionList;
+	
+	}
 }
