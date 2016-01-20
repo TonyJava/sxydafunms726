@@ -27,7 +27,20 @@ public class MysqlJdbcRealmTest {
 
 	@Test
 	public void testDoGetAuthorizationInfoPrincipalCollection() {
+		Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-realm-test.ini");
+		SecurityManager securityManager = factory.getInstance();
+		SecurityUtils.setSecurityManager(securityManager);
 		
+		Subject subject = SecurityUtils.getSubject();
+		//存放的是英文字母大写的hash密码
+		String hashedPassword =  (new Md5Hash("jinzhong")).toString().toUpperCase();
+		UsernamePasswordToken token = new UsernamePasswordToken("jinzhong",hashedPassword);
+		try{
+			subject.login(token);
+		}catch(AuthenticationException e){
+			e.printStackTrace();
+		}
+		subject.isPermitted( "menu:*:165");
 	}
 
 	@Test
@@ -38,13 +51,14 @@ public class MysqlJdbcRealmTest {
 		
 		Subject subject = SecurityUtils.getSubject();
 		//存放的是英文字母大写的hash密码
-		String hashedPassword =  (new Md5Hash("admin")).toString().toUpperCase();
-		UsernamePasswordToken token = new UsernamePasswordToken("admin",hashedPassword);
+		String hashedPassword =  (new Md5Hash("jinzhong")).toString().toUpperCase();
+		UsernamePasswordToken token = new UsernamePasswordToken("jinzhong",hashedPassword);
 		try{
 			subject.login(token);
 		}catch(AuthenticationException e){
 			e.printStackTrace();
 		}
+		subject.isPermitted( "menu:*:165");
 	/*	subject.isPermitted(new WildcardPermission("menu:*:*"));
 		subject.isPermitted( "menu:*:165");
 		subject.isPermitted( "menu:*:7");
@@ -52,7 +66,7 @@ public class MysqlJdbcRealmTest {
 		subject.isPermitted( "menu:*:6");*/
 		
 //		Assert.assertTrue(subject.hasRole("0"));
-		(new CreateRoleFunctionTable()).getRoleFunctionList();
+//		(new CreateRoleFunctionTable()).getRoleFunctionList();
 	}
 
 }

@@ -1,7 +1,6 @@
 /Agentconfig.properties
 /Ftpagentconfig.properties
 /SystemConfigResources.properties
-/UMLtest.class
 /action.xml
 /afunms.xml
 /ajax.xml
@@ -21,8 +20,9 @@
 /node-loader.xml
 /org/
 /panel-category.xml
+/shiro-realm-test.ini
 /shiro-realm.ini
 /smsconfig.properties
 /system-config.xml
 /task.xml
-/shiro-realm-test.ini
+/UMLtest.class
