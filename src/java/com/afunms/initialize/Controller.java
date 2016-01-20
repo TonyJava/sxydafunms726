@@ -15,13 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
 import com.afunms.common.util.SessionConstant;
-
 import com.afunms.system.model.Function;
 import com.afunms.system.model.User;
 import com.afunms.system.util.CreateMenuTableUtil;
@@ -65,7 +68,11 @@ public class Controller extends HttpServlet
          request.setCharacterEncoding("gb2312");
          response.setContentType("text/html;charset=gb2312");
          //SysLogger.info("==================################");
-         String uri = request.getRequestURI();    
+         //菜单项访问控制，shiro权限验证，遗留：菜单项URL无规律，无法拦截做权限验证
+         String uri = request.getRequestURI(),rootPath=request.getContextPath();
+        /* Subject subject = SecurityUtils.getSubject();
+         subject.isPermitted("+"+uri.replaceFirst(rootPath+"/", ""));
+         */
          StringBuffer url = request.getRequestURL();
          int lastSeparator = uri.lastIndexOf("/") + 1;
          int dotSeparator = uri.lastIndexOf(".");
@@ -77,27 +84,6 @@ public class Controller extends HttpServlet
         	auth = 1;
          
          //使用了shiro做登录访问控制
-        /* else
-            auth = authenticate(request);
-         
-         
-         
-         
-         if(auth==-1)
-            jsp = "/common/error.jsp?errorcode=" + ErrorMessage.NO_LOGIN;
-         else  //有权限才能继续
-         {
-             String action = request.getParameter("action");
-             ManagerInterface manager = ManagerFactory.getManager(manageClass);
-               
-             manager.setRequest(request);
-             jsp = manager.execute(action);
-             if(jsp == null)
-                jsp = "/common/error.jsp?errorcode=" + manager.getErrorCode();
-         }
-         */
-         
-
          String action = request.getParameter("action");
          ManagerInterface manager = ManagerFactory.getManager(manageClass);
            
@@ -114,11 +100,9 @@ public class Controller extends HttpServlet
          try{
         	 cmtu.createMenuTableUtil(jsp, request);
          }catch(Exception e){
-        	 //SysLogger.info("&&&&&&&&&&&&&&&&&&&&&1111");
         	 e.printStackTrace();
          }
-         //cmtu.createMenuTableutil(jsp, request);
-         
+ 
          //---------------------------------------
         //SysLogger.info(jsp+"############");
          RequestDispatcher disp = getServletContext().getRequestDispatcher(jsp);
@@ -127,7 +111,6 @@ public class Controller extends HttpServlet
       }
       catch(Exception e)
       {
-          //SysLogger.error("Controller.processHttpRequest()",e);
           e.printStackTrace();
       }
    }

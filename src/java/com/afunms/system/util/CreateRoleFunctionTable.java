@@ -59,11 +59,14 @@ public class CreateRoleFunctionTable {
 	 * @param role_id
 	 * @return
 	 */
-	public List<Function> getRoleFunctionListByRoleId(String role_id){
+	public List<Function> getRoleFunctionListByRoleId(String roleId){
+		FunctionDao dao = new FunctionDao();
+		return dao.findByRole(roleId);
+		/*
 		FunctionDao  functiondao = null;
 	    List<Function> functionList = new ArrayList<Function>();
 	    //0代表是超级用户 直接不检查菜单权限 将所有菜单都载入
-		/*if("0".equals(role_id)){
+		if("0".equals(role_id)){
 			try{
 				functiondao = new FunctionDao();  
 				allfunction = functiondao.loadAll();
@@ -75,7 +78,7 @@ public class CreateRoleFunctionTable {
 				functiondao.close();
 			}
 			return functionList;
-		}*/
+		}
 		RoleFunctionDao roleFunctionDao = null;
 		List<RoleFunction> roleFunctionList = null;
 		try{
@@ -96,7 +99,7 @@ public class CreateRoleFunctionTable {
 		}
 		return functionList;
 		
-	}
+	*/}
 	
 	/**
 	 * 
@@ -133,7 +136,7 @@ public class CreateRoleFunctionTable {
 			for(Function function:allfunction){
 				
 				if(subject.isPermitted("menu:*:"+function.getId())){
-					logger.info("菜单"+function.getId()+"---"+function.getCh_desc()+"---已授权");
+//					logger.info("菜单"+function.getId()+"---"+function.getCh_desc()+"---已授权");
 					functionList.add(function);
 				}
 			}

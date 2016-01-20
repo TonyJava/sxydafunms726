@@ -28,7 +28,8 @@ public class CreateMenuTableUtilTest {
 
 	@Test
 	public void testCreateMenuTable() {
-		fail("Not yet implemented");
+		CreateMenuTableUtil util = new CreateMenuTableUtil();
+		util.createMenu("0", null);
 	}
 
 }

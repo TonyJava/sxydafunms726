@@ -5,26 +5,27 @@
 <%@page import="com.afunms.system.model.Function"%>
 <%@page import="com.afunms.system.util.CreateRoleFunctionTable"%>
 <%@page import="com.afunms.common.util.CommonAppUtil"%>
-
+<%@page import="org.apache.shiro.SecurityUtils"%>
 <%
 	String imgPath = "images";
 	String skin = CommonAppUtil.getSkin();
 	if(null != skin && !"".equals(skin) && !"null".equals(skin))imgPath = skin;
 
 	String rootPath = request.getContextPath();
-	User user = (User)session.getAttribute(SessionConstant.CURRENT_USER);
+	User user = (User)SecurityUtils.getSubject().getPrincipal();
+	System.out.println("============================================"+user);
 	if(user==null){
 		response.sendRedirect("/common/error.jsp?errorcode=3003");
 	}
-   	List<Function> menuRoot = (List<Function>)request.getAttribute("menuRoot");
+   	List<Function> menuRoot = (List<Function>)SecurityUtils.getSubject().getSession().getAttribute("menuRoot");
    	if(null != menuRoot && menuRoot.size() > 0){
    		for(int i = 0;i<menuRoot.size();i++){
    			Function fun = (Function)menuRoot.get(i);
    			fun.setImg_url(fun.getImg_url().replaceAll(".+/", imgPath + "/"));
    		}
    	}
-   	List<Function> role_Function_list= (List<Function>)request.getAttribute("roleFunction");
-   	System.out.println("imgPath==="+imgPath);
+   	List<Function> role_Function_list= (List<Function>)SecurityUtils.getSubject().getSession().getAttribute("roleFunction");
+
 %>
 
 <html>

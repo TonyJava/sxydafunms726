@@ -32,7 +32,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-  <filter>
+<!--   <filter>
 	<filter-name>MainFilter</filter-name>
 	<filter-class>com.afunms.filter.MainFilter</filter-class>
 
@@ -40,7 +40,7 @@
 	<filter-mapping>
 		<filter-name>MainFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> 
+	</filter-mapping>  -->
   <!-- MessageBroker Servlet -->
     <servlet>
         <servlet-name>MessageBrokerServlet</servlet-name>
