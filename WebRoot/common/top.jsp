@@ -13,7 +13,6 @@
 
 	String rootPath = request.getContextPath();
 	User user = (User)SecurityUtils.getSubject().getPrincipal();
-	System.out.println("============================================"+user);
 	if(user==null){
 		response.sendRedirect("/common/error.jsp?errorcode=3003");
 	}

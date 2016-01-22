@@ -16,8 +16,16 @@ html,body{ background:#1e4765 url(<%=rootPath%>/resource/image/login_bg.jpg) no-
 .user{ margin-left:40px;}
 .password{ margin-left:100px;}
 .txt{ line-height:35px; color:#f2f2f2; padding:20px 7px;}
+.rememberme{
+	display:block;
+	font-size:1.5em;
+	color:white;
+	padding:10px 0;
+}
 .nav{ float:right; cursor:pointer; width:113px; height:35px; background:url(<%=rootPath%>/resource/image/login_nav.jpg) no-repeat; border:0;}
 </style>
+<!--<link href="<%=rootPath%>/common/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+  -->
 <script language="javascript">
 function doLogin()
 {
@@ -44,7 +52,7 @@ function doLogin()
 <form method="post" name="mainForm" action="<%=rootPath%>/user.do?action=login" onsubmit="return doLogin();">
 <input name="userid" id="userid" type="text" class="sr user" />
 <input name="password" id="password" type="password" class="sr password"/>
-
+<label class="rememberme"><input type="checkbox" name="rememberMe" />记住我</label>
 <div class="txt"><input name="Submit" type="submit" class="nav" value=""/>技术支持 | 东华软件股份公司</div>
 </form>
 </div>

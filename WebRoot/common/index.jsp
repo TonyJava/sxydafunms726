@@ -4,9 +4,10 @@
 <%@page import="com.afunms.system.model.User"%>
 <%@page import="java.util.List"%>
 <%@page import="com.afunms.system.model.Function"%>
+<%@page import="org.apache.shiro.SecurityUtils " %>
 <%
 	List<Function> menuRoot = (List<Function>)request.getAttribute("menuRoot");
-  User user = (User)session.getAttribute(SessionConstant.CURRENT_USER); //当前用户
+  User user = (User)SecurityUtils.getSubject().getPrincipal(); //当前用户
   if(user==null)
      response.sendRedirect("/common/error.jsp?errorcode=3003");
 

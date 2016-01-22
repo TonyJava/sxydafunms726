@@ -18,13 +18,14 @@
 <%@page import="com.afunms.system.model.Function"%>
 <%@page import="com.afunms.home.role.dao.HomeRoleDao"%>
 <%@page import="com.afunms.home.user.dao.HomeUserDao"%>
+<%@page import="org.apache.shiro.SecurityUtils,org.apache.shiro.subject.Subject " %>
 <%
 
-System.out.println("====zzz==========================1=================================zz");
 	Hashtable smallHashtable = (Hashtable) request.getAttribute("smallHashtable");
-	User uservo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+	Subject subject = SecurityUtils.getSubject();
+	User uservo = (User) subject.getPrincipal();
 	Hashtable bigHashtable = (Hashtable) request.getAttribute("bigHashtable");
-	System.out.println(bigHashtable);
+	
 	int lastOne = 0;//是否最后一个元素
 	Enumeration RLKey = smallHashtable.elements();
 	while (RLKey.hasMoreElements()) {
@@ -76,21 +77,20 @@ System.out.println("====zzz==========================1==========================
 		home_topo_view = vo.getXmlName();
 		zoom = vo.getPercent() + "";
 	}
-	session.setAttribute(SessionConstant.HOME_TOPO_VIEW, home_topo_view);
+	subject.getSession().setAttribute(SessionConstant.HOME_TOPO_VIEW, home_topo_view);
 	ManageXmlDao mxdao = new ManageXmlDao();
 	ManageXml mxvo = (ManageXml) mxdao.findByBusView("1", uservo.getBusinessids());
 
 	//得到业务告警信息
 	NetworkMonitor networkMonitor = new NetworkMonitor();
 	Hashtable bussinessviewHash = networkMonitor.getBussinessviewHash();
-	System.out.println("====zzz==========================2=================================zz");
 %>
 
 <%
 	//默认选择该用户第一个所属业务作为跳转的treeBid
 
 	//该所属业务中没有路由器，且该用户没有下一个所属业务，不跳转！
-	User user = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+	User user = (User) subject.getPrincipal();
 	String[] bids = user.getBusinessids().split(",");
 	String defaultbid = "";
 	for (String bid : bids) {

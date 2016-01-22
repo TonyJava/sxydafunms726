@@ -26,6 +26,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.mgt.RealmSecurityManager;
+import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.jfree.chart.ChartFactory;
@@ -135,8 +137,11 @@ import com.afunms.system.dao.RoleDao;
 import com.afunms.system.dao.SysLogDao;
 import com.afunms.system.dao.UserAuditDao;
 import com.afunms.system.dao.UserDao;
+import com.afunms.system.model.Function;
 import com.afunms.system.model.SysLog;
 import com.afunms.system.model.User;
+import com.afunms.system.shiro.MysqlJdbcRealm;
+import com.afunms.system.util.CreateRoleFunctionTable;
 import com.afunms.system.vo.EventVo;
 import com.afunms.system.vo.FlexVo;
 import com.afunms.topology.dao.HostNodeDao;
@@ -149,6 +154,10 @@ import com.afunms.topology.model.MonitorNodeDTO;
 import com.afunms.topology.model.NodeMonitor;
 import com.afunms.util.AgentalarmControlutil;
 import com.cn.dhcc.util.license.LicenseUtil;
+
+
+
+
 
 
 
@@ -294,7 +303,21 @@ public class UserManager extends BaseManager implements ManagerInterface {
     	return targetJsp;
         }
 
-
+/**
+ * 取出用户对应的菜单项给登录的用户
+ * @param subject 登录的用户
+ * @param user 用户信息
+ */
+    public static void addUserMenuToSubject(final Subject subject,User user){
+    	//用户菜单
+    	CreateRoleFunctionTable crft = new CreateRoleFunctionTable(); 
+    	List<Function> list = crft.getRoleFunctionListByRoleId(String.valueOf(user.getRole()));
+		List<Function> menuRoot_list = crft.getAllMenuRoot(list);
+		Session session = subject.getSession();
+	
+		session.setAttribute("menuRoot", menuRoot_list);
+		session.setAttribute("roleFunction", list);
+    }
     /**
      * 用户登录
      */
@@ -302,30 +325,46 @@ public class UserManager extends BaseManager implements ManagerInterface {
     	
     	String bsid=getParaValue("bsid");
     	String nodeid=getParaValue("nodeid");
-	if (getParaValue("password") == null) {
-	    setErrorCode(ErrorMessage.INCORRECT_PASSWORD);
-	    return null;
-	}
-	int flag = 0;
-	try {
-	    // 判断验证码
-	   // LicenseUtil.checkLicense();
-	} catch (Exception e) {
-	    // e.printStackTrace();
-
-	    SysLogger.info(e.getMessage());
-	    SysLogger.info("LICENSE验证失败,请与厂商联系...");
-	    flag = 1;
-	}
-	// 若验证码失败,则显示受限页面
-	if (flag == 1)
-	    return "/limited.jsp";
-
 	Subject subject = SecurityUtils.getSubject();
 	String password = getParaValue("password");
+	String username = getParaValue("userid");
+	boolean isDirectAccess = password==null || username == null?true :false;
+	//当前没有登录过，之前也没有记住用户，视为彻底的没有登录
+//	这种情况下，直接访问转入登录页面，登录操作则放行
+	boolean isNoLogin =subject.isAuthenticated()||subject.isRemembered()?false:true; 
+	if(isNoLogin){
+		if(isDirectAccess)
+			return "/index.jsp";
+	}
+
+//	当前已经有用户登录，再次从表单登录，踢掉前面登录的用户
+//	如果不是登录操作，而是直接访问，则放行
+	if(subject.isAuthenticated()){
+		if(isDirectAccess){
+			return "/common/index.jsp";
+		}else{
+			//登录操作，需要清空缓存
+			RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
+			MysqlJdbcRealm realm = (MysqlJdbcRealm)securityManager.getRealms().iterator().next();
+			realm.clearAllCachedAuthenticationInfo();
+			realm.clearAllCachedAuthorizationInfo();
+		}
+	}
+//	之前记住了用户，再次从表单登录，进行正常登录
+//	如果不是登录操作，而是直接访问，则放行
+	else if(subject.isRemembered()){
+		if(isDirectAccess){
+			this.addUserMenuToSubject(subject, (User)subject.getPrincipal());
+			return "/common/index.jsp";
+		}
+	}
+	
+	
 	String hashedPassword =  (new Md5Hash(password)).toString().toUpperCase();
-    UsernamePasswordToken token = new UsernamePasswordToken(getParaValue("userid"),hashedPassword);
+    UsernamePasswordToken token = new UsernamePasswordToken(username,hashedPassword,false);
     
+    String[] rememberMe = this.getParaArrayValue("rememberMe");
+    if(rememberMe != null) token.setRememberMe(true);
     try {
         //4、登录，即身份验证
         subject.login(token);
@@ -377,7 +416,7 @@ public class UserManager extends BaseManager implements ManagerInterface {
     private  void homeModuleSet() {
 	String str = "";
 	// 查询用户首页模块设置 如果没有那么直接跳转到修改页面
-	User uservo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
+	User uservo = (User) SecurityUtils.getSubject().getPrincipal();
 	HomeRoleDao homeRoleDao = new HomeRoleDao();
 	HomeUserDao homeUserDao = new HomeUserDao();
 	String sqlCondition = " where user_id='" + uservo.getUserid() + "'";
@@ -542,7 +581,7 @@ public class UserManager extends BaseManager implements ManagerInterface {
 	}
 
 	List monitornodelist = getMonitorListByCategory("net_server");
-	System.out.println("====server=="+monitornodelist.size());
+
 	
 	List hostcpusortlist = new ArrayList();
 	List hostmemorysortlist = new ArrayList();
@@ -576,7 +615,6 @@ public class UserManager extends BaseManager implements ManagerInterface {
 
 	List monitornetlist = getMonitorListByCategory("net");
 	
-	System.out.println("====net=="+monitornetlist.size());
 	List netcpusortlist = new ArrayList();
 	List netoutsortlist = new ArrayList();
 	List netinsortlist = new ArrayList();

@@ -21,6 +21,7 @@ import com.afunms.system.dao.FunctionDao;
 import com.afunms.system.dao.RoleFunctionDao;
 import com.afunms.system.dao.SysLogDao;
 import com.afunms.system.dao.UserDao;
+import com.afunms.system.manage.UserManager;
 import com.afunms.system.model.Function;
 import com.afunms.system.model.RoleFunction;
 import com.afunms.system.model.SysLog;
@@ -35,6 +36,41 @@ import java.util.List;
  * <p>Version: 1.0
  */
 public class MysqlJdbcRealm extends AuthorizingRealm {
+
+	 @Override
+	    public void clearCache(PrincipalCollection principals) {
+	        super.clearCache(principals);
+	    }
+
+	    public void clearAllCachedAuthorizationInfo() {
+	        getAuthorizationCache().clear();
+	    }
+
+	    public void clearAllCachedAuthenticationInfo() {
+	        getAuthenticationCache().clear();
+	    }
+
+	    public void clearAllCache() {
+	        clearAllCachedAuthenticationInfo();
+	        clearAllCachedAuthorizationInfo();
+	    }
+	/* (non-Javadoc)
+	 * @see org.apache.shiro.realm.AuthorizingRealm#clearCachedAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection)
+	 */
+	@Override
+	public void clearCachedAuthorizationInfo(PrincipalCollection arg0) {
+		// TODO Auto-generated method stub
+		super.clearCachedAuthorizationInfo(arg0);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.apache.shiro.realm.AuthenticatingRealm#clearCachedAuthenticationInfo(org.apache.shiro.subject.PrincipalCollection)
+	 */
+	@Override
+	public void clearCachedAuthenticationInfo(PrincipalCollection arg0) {
+		// TODO Auto-generated method stub
+		super.clearCachedAuthenticationInfo(arg0);
+	}
 
 	private final Log logger = LogFactory.getLog(MysqlJdbcRealm.class);
     @Override
@@ -66,7 +102,7 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 
         String username = (String)token.getPrincipal();
         
-        String password = new String((char[])token.getCredentials());
+        String password =  new String((char[])token.getCredentials());
      
       
       
@@ -82,14 +118,7 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 
     	logger.info("用户"+username+"登录成功");
     	
-    	//用户菜单
-    	CreateRoleFunctionTable crft = new CreateRoleFunctionTable(); 
-    	List<Function> list = crft.getRoleFunctionListByRoleId(String.valueOf(vo.getRole()));
-		List<Function> menuRoot_list = crft.getAllMenuRoot(list);
-		Session session = SecurityUtils.getSubject().getSession();
-	
-		session.setAttribute("menuRoot", menuRoot_list);
-		session.setAttribute("roleFunction", list);
+    	UserManager.addUserMenuToSubject(SecurityUtils.getSubject(), vo);
         //如果身份认证验证成功，返回一个AuthenticationInfo实现；
         return new SimpleAuthenticationInfo(vo, vo.getPassword(), getName());
     }

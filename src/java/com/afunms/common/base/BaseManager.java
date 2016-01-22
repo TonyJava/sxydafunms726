@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
+
 import com.afunms.common.util.SysLogger;
 import com.lowagie.text.BadElementException;
 import com.lowagie.text.Cell;
@@ -26,7 +29,7 @@ public class BaseManager
 {
    protected HttpServletRequest request;  
    protected HttpServletResponse response;
-   protected HttpSession session;   
+   protected Session session;   
    protected int errorCode;  //出错信息号;
    private String target;     //目标jsp
    
@@ -39,7 +42,7 @@ public class BaseManager
       request = req;
       //response.setContentType("text/html;charset=GB2312");
       //response.setContentType("text/html;charset=UTF-8");
-      session = request.getSession();
+      session = SecurityUtils.getSubject().getSession();
    }
    
    public void setRequest(HttpServletRequest req,HttpServletResponse res)
@@ -48,7 +51,7 @@ public class BaseManager
       response = res;
       response.setContentType("text/html;charset=GB2312");
       //response.setContentType("text/html;charset=UTF-8");
-      session = request.getSession();
+      session = SecurityUtils.getSubject().getSession();
    }
    
    /**
