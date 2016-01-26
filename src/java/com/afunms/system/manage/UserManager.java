@@ -1785,10 +1785,10 @@ public class UserManager extends BaseManager implements ManagerInterface {
      */
     private String logout() {
     Subject subject = SecurityUtils.getSubject();
-    RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
+  /*  RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
 	MysqlJdbcRealm realm = (MysqlJdbcRealm)securityManager.getRealms().iterator().next();
 	realm.clearAllCachedAuthenticationInfo();
-	realm.clearAllCachedAuthorizationInfo();
+	realm.clearAllCachedAuthorizationInfo();*/
     subject.logout();
 
 	return "/login.jsp";

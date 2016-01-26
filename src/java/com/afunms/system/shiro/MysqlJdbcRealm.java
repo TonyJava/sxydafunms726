@@ -95,7 +95,9 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 //		authorizationInfo.addStringPermission("menu:*:222"); 
 		return authorizationInfo;
 	}
-
+/**
+ * 
+ */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
@@ -118,7 +120,6 @@ public class MysqlJdbcRealm extends AuthorizingRealm {
 
     	logger.info("用户"+username+"登录成功");
     	
-    	UserManager.addUserMenuToSubject(SecurityUtils.getSubject(), vo);
         //如果身份认证验证成功，返回一个AuthenticationInfo实现；
         return new SimpleAuthenticationInfo(vo, vo.getPassword(), getName());
     }

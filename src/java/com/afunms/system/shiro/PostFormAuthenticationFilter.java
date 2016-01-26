@@ -46,19 +46,20 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 //		但是登录操作，需要踢掉以前登录的用户，然后登录
 //		通过记住我的URL请求，则放行
 		  Subject subject = getSubject(request, response);
+		  if(subject.isAuthenticated()||subject.isRemembered())		    	  UserManager.addUserMenuToSubject(subject, (User)subject.getPrincipal());
+
 	      if(subject.isAuthenticated()){
-	    		if (isLoginRequest(request, response)&&isLoginSubmission(request, response)) {
+	    		if (isLoginRequest(request, response)&&isLoginSubmission(request, response)) {/*
 	    			//登录操作，需要清空缓存
 	    			RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
 	    			MysqlJdbcRealm realm = (MysqlJdbcRealm)securityManager.getRealms().iterator().next();
 	    			realm.clearAllCachedAuthenticationInfo();
 	    			realm.clearAllCachedAuthorizationInfo();
-	    		}
+	    		*/}
 	    		else{     
 	    			return true;
 	    		}
 	      }else if(subject.isRemembered()){
-	    	  UserManager.addUserMenuToSubject(subject, (User)subject.getPrincipal());
 	    		if (isLoginRequest(request, response)) {
 	    			this.issueSuccessRedirect(request, response);
 	    			return false;
