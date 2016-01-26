@@ -49,7 +49,7 @@ function doLogin()
 
 <body>
 <div class="box">
-<form method="post" name="mainForm" action="<%=rootPath%>/user.do?action=login" onsubmit="return doLogin();">
+<form method="POST" name="mainForm" action="<%=rootPath%>/user.do?action=login" onsubmit="return doLogin();">
 <input name="userid" id="userid" type="text" class="sr user" />
 <input name="password" id="password" type="password" class="sr password"/>
 <label class="rememberme"><input type="checkbox" name="rememberMe" />¼Ç×¡ÎÒ</label>

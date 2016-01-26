@@ -326,9 +326,9 @@ public class UserManager extends BaseManager implements ManagerInterface {
     	String bsid=getParaValue("bsid");
     	String nodeid=getParaValue("nodeid");
 	Subject subject = SecurityUtils.getSubject();
-	String password = getParaValue("password");
-	String username = getParaValue("userid");
-	boolean isDirectAccess = password==null || username == null?true :false;
+	/*String password = getParaValue("password");
+	String username = getParaValue("userid");*/
+/*	boolean isDirectAccess = password==null || username == null?true :false;
 	//当前没有登录过，之前也没有记住用户，视为彻底的没有登录
 //	这种情况下，直接访问转入登录页面，登录操作则放行
 	boolean isNoLogin =subject.isAuthenticated()||subject.isRemembered()?false:true; 
@@ -358,21 +358,19 @@ public class UserManager extends BaseManager implements ManagerInterface {
 			return "/common/index.jsp";
 		}
 	}
+	*/
 	
-	
-	String hashedPassword =  (new Md5Hash(password)).toString().toUpperCase();
+	/*String hashedPassword =  (new Md5Hash(password)).toString().toUpperCase();
     UsernamePasswordToken token = new UsernamePasswordToken(username,hashedPassword,false);
     
     String[] rememberMe = this.getParaArrayValue("rememberMe");
-    if(rememberMe != null) token.setRememberMe(true);
+    if(rememberMe != null) token.setRememberMe(true);*/
     try {
-        //4、登录，即身份验证
-        subject.login(token);
+     /*   //4、登录，即身份验证
+        subject.login(token);*/
         
         User user = (User)subject.getPrincipal();
-        Session session = subject.getSession();
-    	session.setAttribute(SessionConstant.CURRENT_USER, user); // 用户姓名
-
+    
     	CommonAppUtil.setSkin(user.getSkins());
 
     	if (!"127.0.0.1".equals(request.getRemoteAddr())) {
@@ -1787,10 +1785,13 @@ public class UserManager extends BaseManager implements ManagerInterface {
      */
     private String logout() {
     Subject subject = SecurityUtils.getSubject();
+    RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
+	MysqlJdbcRealm realm = (MysqlJdbcRealm)securityManager.getRealms().iterator().next();
+	realm.clearAllCachedAuthenticationInfo();
+	realm.clearAllCachedAuthorizationInfo();
     subject.logout();
-//	session.removeAttribute(SessionConstant.CURRENT_MENU);
-//	session.removeAttribute(SessionConstant.CURRENT_USER);
-	return "/index.jsp";
+
+	return "/login.jsp";
     }
 
     public String execute(String action) {

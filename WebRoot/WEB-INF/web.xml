@@ -167,7 +167,9 @@
     <session-timeout>1800</session-timeout> 
   </session-config>
   
-  
+  <welcome-file-list>
+  	<welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
   
   <!-- 配置全局错误页面-->
   <!-- errorcode参见ErrorMessage-->
