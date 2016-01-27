@@ -1,6 +1,9 @@
 <%@page language="java" contentType="text/html;charset=GB2312"%>
+<%@page import="org.apache.shiro.authc.* " %>
 <%
   String rootPath = request.getContextPath();
+	String loginExceptionName = (String)request.getAttribute("shiroLoginFailure");
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -42,6 +45,17 @@ function doLogin()
        return false;
     } 
 }
+<%
+if(UnknownAccountException.class.getName().equals(loginExceptionName)){
+	%>
+	alert('没有这个用户。');
+	<%
+}else if(IncorrectCredentialsException.class.getName().equals(loginExceptionName)){
+	%>
+	alert('密码错误。');
+	<%
+}
+%>
 </script>
 
 
