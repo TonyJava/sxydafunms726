@@ -37,7 +37,7 @@ public class UnboundedWildcardTest {
 		UnboundedWildcard.assign1(wildList);
 		UnboundedWildcard.assign2(wildList);
 		UnboundedWildcard.assign3(wildList);
-
+		new ArrayList<?>();
 	}
 
 }

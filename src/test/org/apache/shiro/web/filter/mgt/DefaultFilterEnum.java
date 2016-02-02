@@ -37,12 +37,21 @@ public enum DefaultFilterEnum {
 
     public final Class<? extends Filter> filterClass;
 
-    private DefaultFilterEnum(Class<Filter> filterClass) {
+    private DefaultFilterEnum(Class<? extends Filter> filterClass) {
         this.filterClass = filterClass;
     }
 
     public Filter newInstance() {
-        return (Filter) ClassUtils.newInstance(this.filterClass);
+        try {
+			return filterClass.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
     }
 
     public Class<? extends Filter> getFilterClass() {
