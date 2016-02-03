@@ -20,11 +20,19 @@ public class ClassInitializatioinTest {
 
 	@Test
 	public void test() {
+		System.out.println("1--------------");
 		Class initable = Initable.class;
-		
+		System.out.println("2--------------");
+
 		System.out.println(Initable.STATIC_FINAL);
+		System.out.println("3--------------");
+
 		System.out.println(Initable.STATIC_FINAL2);
+		System.out.println("4--------------");
+
 		System.out.println(Initable2.noFinal);
+		System.out.println("5--------------");
+
 		System.out.println(Initable3.noFinal);
 
 	}
@@ -53,4 +61,7 @@ class Initable3{
 
 class ClassInitialization{
 	static Random rand = new Random(47);
+	static{
+		System.out.println("Initial ClassInitialization");
+	}
 }

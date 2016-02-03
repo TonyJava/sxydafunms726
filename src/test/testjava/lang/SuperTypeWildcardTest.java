@@ -22,6 +22,8 @@ public class SuperTypeWildcardTest {
 	@Test
 	public void test() {
 //		SuperTypeWildcard.writeTo(new ArrayList<Jonathan>());
+		List<? super Jonathan > list = new ArrayList<Fruit>();
+		list.add(new Jonathan());
 		GenericWritting.f1();
 		GenericWritting.f2();
 	}
@@ -48,7 +50,7 @@ class GenericWritting{
 	static void f1(){
 		writeExact(apples,new Apple());
 		writeExact(fruits,new Apple());
-		writeExact(apples,new Fruit());]
+	
 				writeExact(apples,new Jonathan());
 	}
 	
