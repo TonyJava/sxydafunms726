@@ -19,7 +19,17 @@ public class Business extends BaseVo
     private String bigsystem="";
     private String smallsystem="";
     
-    public void setId(String id)
+    /* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Business [id=" + id + ", name=" + name + ", descr=" + descr
+				+ ", pid=" + pid + ", bigsystem=" + bigsystem
+				+ ", smallsystem=" + smallsystem + "]";
+	}
+
+	public void setId(String id)
     {
        this.id = id;
     }

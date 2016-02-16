@@ -13,6 +13,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
 import com.afunms.common.util.DBManager;
 import com.afunms.common.util.SysLogger;
 
@@ -213,64 +217,40 @@ public abstract class GenericBaseDao<T>
 	   return id;
    }
    
-   /**
-    * 按ID找一条记录
-    */
-   public BaseVo findByID(String id)
+   public List<T> findByIDs(String IDs)
    {
-	   BaseVo vo = null;
-       try
-	   {
-		   rs = conn.executeQuery("select * from " + table + " where id=" + id); 
-		   if(rs.next())
-		       vo = loadFromRS(rs);
-	   }    
-	   catch(Exception ex)
-	   {
-		   //ex.printStackTrace();
-		   SysLogger.error("BaseDao.findByID()",ex);
-	   }finally{
-		   if(rs != null){
-			   try{
-				   rs.close();
-			   }catch(Exception e){
-			   }
-		   }
-	   }
-       return vo;
+ 	  List<T> list = new ArrayList<T>();
+	  rs = conn.executeQuery("select * from system_business where id in(" + IDs +")");
+	  ResultSetHandler<List<T>> handler = new BeanListHandler<T>(clazz);
+	  try {
+		list = handler.handle(rs);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+ 	  return list;
    }
 
-   /**
-    * 载入所有记录
-    */
-   public List loadAll()
+   public T findByID(String id)
    {
-	   List list = new ArrayList();
-	   try 
-	   {
-		   rs = conn.executeQuery("select * from " + table + " order by id");
-		   if(rs == null)return null;
-		   while(rs.next())
-			  list.add(loadFromRS(rs));				
-	   } 
-	   catch(Exception e) 
-	   {
-		   e.printStackTrace();
-           list = null;
-		   SysLogger.error("BaseDao.loadAll()",e);
-	   }
-	   finally
-	   {
-		   if(rs != null){
-			   try{
-				   rs.close();
-			   }catch(Exception e){
-			   }
-		   }
-		   conn.close();
-	   }
-	   return list;	
+      T vo = null;
+      try
+      {
+         rs = conn.executeQuery("select * from system_business where id=" + id );
+         vo = loadFromRS(rs);
+      }
+      catch(Exception e)
+      {
+          SysLogger.error("BusinessDao.findByID()",e);
+          vo = null;
+      }
+      finally
+      {
+         conn.close();
+      }
+      return vo;
    }
+
    
    /**
     * 按权限载入所有记录
@@ -480,8 +460,52 @@ public abstract class GenericBaseDao<T>
    	}
    	return "0";
    }
-   /**
-    * 把一条记录载入VO
-    */
-   public abstract BaseVo loadFromRS(ResultSet rs);
+  
+   
+  
+
+
+public GenericBaseDao(String table, Class clazz) {
+	super();
+	this.table = table;
+	this.clazz = clazz;
+	conn = new DBManager();
+
+}
+
+
+
+//-------------load all top menus--------------
+public List<T> loadAll()
+{
+   List<T> list = new ArrayList<T>();
+
+   rs = conn.executeQuery("select * from system_business order by id");
+   ResultSetHandler<List<T>> handler = new BeanListHandler<T>(clazz);
+   try {
+		list = handler.handle(rs);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+ 
+   conn.close();
+	}
+   return list;
+}
+
+private  Class clazz;
+   public T loadFromRS(ResultSet rs)
+   {
+	   T vo = null;
+
+ 	  ResultSetHandler<T> handler = new BeanHandler<T>(clazz);
+ 	  try {
+		vo = handler.handle(rs);
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+      return vo;
+   }
 }
