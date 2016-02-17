@@ -12,6 +12,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mchange-commons-java-0.2.10.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/phoenix-4.6.0-HBase-1.1-client.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/shiro-all-1.2.4.jar" sourcepath="E:/Java libs/shiro-root-1.2.4-source-release.zip"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-dbutils-1.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-dbutils-1.6.jar" sourcepath="E:/Java libs/commons-dbutils-1.6-src.zip"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

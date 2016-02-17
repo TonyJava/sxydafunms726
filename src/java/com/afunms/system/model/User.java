@@ -12,7 +12,19 @@ import com.afunms.common.base.BaseVo;
 
 public class User extends BaseVo
 {
-    private int id;
+    /* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userid=" + userid + ", name=" + name
+				+ ", password=" + password + ", sex=" + sex + ", role=" + role
+				+ ", phone=" + phone + ", mobile=" + mobile + ", email="
+				+ email + ", dept=" + dept + ", position=" + position
+				+ ", businessids=" + businessids + ", skins=" + skins + "]";
+	}
+
+	private int id;
     private String userid;
     private String name;
     private String password;

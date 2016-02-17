@@ -10,22 +10,22 @@ package com.afunms.common.base;
 
 import java.util.List;
 
-public interface DaoInterface
+public interface DaoInterface<T>
 {
 	/**
 	 * 加载所有记录
 	 */
-	public List loadAll();
+	public List<T> loadAll();
 	
 	/**
 	 * 分页列表 
 	 */
-	public List listByPage(int curpage,int perpage);
+	public List<T> listByPage(int curpage,int perpage);
 	
 	/**
 	 * 带条件的分页列表 
 	 */
-	public List listByPage(int curpage,String where,int perpage);
+	public List<T> listByPage(int curpage,String where,int perpage);
 	
 	/**
 	 * 删除一批记录 
