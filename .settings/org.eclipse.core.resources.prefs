@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//WebRoot/js/home.js=gb2312
 encoding//WebRoot/resource/css/global/global.css=UTF-8
 encoding//src/java/com/database/DatabaseAccessImpl.java=UTF-8
+encoding//src/java/shiro-realm.ini=UTF-8
 encoding/<project>=gb2312

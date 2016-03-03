@@ -42,9 +42,9 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	public boolean onPreHandle(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws Exception {
 		// TODO Auto-generated method stub
-//		任何URL请求，只要登录过（包括登录和记住我），放行
-//		但是登录操作，需要踢掉以前登录的用户，然后登录
-//		通过记住我的URL请求，则放行
+	/*	任何URL请求，只要登录过（包括登录和记住我），放行
+		但是登录操作，需要踢掉以前登录的用户，然后登录
+		通过记住我的URL请求，则放行*/
 		  Subject subject = getSubject(request, response);
 		  if(subject.isAuthenticated()||subject.isRemembered())		    	  UserManager.addUserMenuToSubject(subject, (User)subject.getPrincipal());
 
@@ -66,8 +66,8 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	    		}
 	    	  return true;
 	      }
-//	      没有登录过，如果是登录操作（loginURL上的POST请求），则登录
-//	      如果是登录页面请求（loginURL上的get请求），则重定向到登录页面
+	/*      没有登录过，如果是登录操作（loginURL上的POST请求），则登录
+	      如果是登录页面请求（loginURL上的get请求），则重定向到登录页面*/
 		if (isLoginRequest(request, response)) {
             if (isLoginSubmission(request, response)) {
                

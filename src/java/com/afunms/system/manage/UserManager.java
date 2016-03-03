@@ -365,35 +365,30 @@ public class UserManager extends BaseManager implements ManagerInterface {
     
     String[] rememberMe = this.getParaArrayValue("rememberMe");
     if(rememberMe != null) token.setRememberMe(true);*/
-    try {
-     /*   //4、登录，即身份验证
-        subject.login(token);*/
-        
-        User user = (User)subject.getPrincipal();
-    
-    	CommonAppUtil.setSkin(user.getSkins());
+   
 
-    	if (!"127.0.0.1".equals(request.getRemoteAddr())) {
 
-    	    SysLog slvo = new SysLog();
-    	    slvo.setUser(user.getName());
-    	    slvo.setEvent("登录系统");
-    	    slvo.setLogTime(SysUtil.getCurrentTime());
-    	    slvo.setIp(request.getRemoteAddr());
-    	    SysLogDao sldao = new SysLogDao();
-    	
-    		sldao.save(slvo);
-    		sldao.close();
-    	    
-    	}
-    } catch (AuthenticationException e) {
-        
-        e.printStackTrace();
-        setErrorCode(ErrorMessage.INCORRECT_PASSWORD);
-	    return null;
-    }
+    /*   //4、登录，即身份验证
+       subject.login(token);*/
+       
+       User user = (User)subject.getPrincipal();
+   
+   	CommonAppUtil.setSkin(user.getSkins());
 
-    
+   	if (!"127.0.0.1".equals(request.getRemoteAddr())) {
+
+   	    SysLog slvo = new SysLog();
+   	    slvo.setUser(user.getName());
+   	    slvo.setEvent("登录系统");
+   	    slvo.setLogTime(SysUtil.getCurrentTime());
+   	    slvo.setIp(request.getRemoteAddr());
+   	    SysLogDao sldao = new SysLogDao();
+   	
+   		sldao.save(slvo);
+   		sldao.close();
+   	    
+   	}
+   
 	this.getHome();
 
 	if(null!=bsid){
@@ -464,25 +459,6 @@ public class UserManager extends BaseManager implements ManagerInterface {
     	Subject subject = SecurityUtils.getSubject();
     
     	User vo = (User)subject.getPrincipal();
-//	User vo = (User) session.getAttribute(SessionConstant.CURRENT_USER);
-	// Date d = new Date();
-	// SimpleDateFormat sdf0 = new SimpleDateFormat("yyyy-MM-dd");
-	// String startdate = sdf0.format(d);
-	// String todate = sdf0.format(d);
-	//
-	// String starttime = startdate + " 00:00:00";
-	// String totime = todate + " 23:59:59";
-	// int info = 0;
-	// int one = 0;
-	// int two = 0;
-	// int three = 0;
-//	List networkCPUList = new ArrayList();
-//	List allinutillist = new ArrayList();
-//	List alloututillist = new ArrayList();
-//	List allhostcpulist = new ArrayList();
-//	List allhostmemorylist = new ArrayList();
-//	List allhostdisklist = new ArrayList();
-
 	List rpceventlist = new ArrayList();
 	// 网络
 	HostNodeDao nodedao = new HostNodeDao();

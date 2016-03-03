@@ -35,7 +35,7 @@
 		}
 	}
 	String rootPath = request.getContextPath();
-	String menuTable = (String) request.getAttribute("menuTable");
+//	String menuTable = (String) request.getAttribute("menuTable");
 	List list = null;
 	Date c1 = new Date();
 	String timeFormat = "MM-dd HH:mm:ss";
