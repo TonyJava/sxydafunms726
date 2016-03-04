@@ -1,11 +1,18 @@
 package com.afunms.system.shiro;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.mgt.RealmSecurityManager;
@@ -31,6 +38,15 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		return createToken(username, hashedPassword, request, response);
 	}
 
+	private static final String NOT_SUPPORT_GET_LOGINURL = "{"
+			+"id:0,"
+			+"msg:'使用HTTP GET方式登录暂时不被支持'"
+			+ "}";
+	private static final String UNAUTHENTICATED = "{"
+			+"id:1,"
+			+"msg:'未登录，不能访问资源'"
+			+ "}";
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -49,14 +65,7 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		  if(subject.isAuthenticated()||subject.isRemembered())		    	  UserManager.addUserMenuToSubject(subject, (User)subject.getPrincipal());
 
 	      if(subject.isAuthenticated()){
-	    		if (isLoginRequest(request, response)&&isLoginSubmission(request, response)) {/*
-	    			//登录操作，需要清空缓存
-	    			RealmSecurityManager securityManager = (RealmSecurityManager)SecurityUtils.getSecurityManager();
-	    			MysqlJdbcRealm realm = (MysqlJdbcRealm)securityManager.getRealms().iterator().next();
-	    			realm.clearAllCachedAuthenticationInfo();
-	    			realm.clearAllCachedAuthorizationInfo();
-	    		*/}
-	    		else{     
+	    		if (!(isLoginRequest(request, response)&&isLoginSubmission(request, response))) {
 	    			return true;
 	    		}
 	      }else if(subject.isRemembered()){
@@ -67,19 +76,105 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	    	  return true;
 	      }
 	/*      没有登录过，如果是登录操作（loginURL上的POST请求），则登录
-	      如果是登录页面请求（loginURL上的get请求），则重定向到登录页面*/
+	      如果不是登录页面的POST请求（loginURL上的get请求），则拒绝提供服务，发送501响应*/
+	      HttpServletRequest httpRequst = WebUtils.toHttp(request);
+	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
+	      httpResponse.setCharacterEncoding("utf-8");
+	      PrintWriter out = httpResponse.getWriter();
+	     
 		if (isLoginRequest(request, response)) {
             if (isLoginSubmission(request, response)) {
                
                 return executeLogin(request, response);
             } else {
-         
-                return true;
+            	httpResponse.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+            	httpResponse.setContentType("application/json");
+            	out.print(NOT_SUPPORT_GET_LOGINURL);
+                return false;
             }
         } else {
-           
-            saveRequestAndRedirectToLogin(request, response);
+
+//            saveRequestAndRedirectToLogin(request, response);
+        	httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        	httpResponse.setContentType("application/json");
+        	out.print(UNAUTHENTICATED);
             return false;
         }
 	}
+
+	private static final String UNKNOWN_ACCOUNT = "{"
+			+"id:2,"
+			+"msg:'登录的用户名不存在"
+			+ "}";
+	private static final String INCORRECT_CREDENTIALS = "{"
+			+"id:3,"
+			+"msg:'密码错误'"
+			+ "}";
+	private static final String UNKNOWN_AUTHENTICATION_ERROR = "{"
+			+"id:4,"
+			+"msg:'未知的认证错误'"
+			+ "}";
+	
+	private static final String LOGIN_SUCCESS = "{"
+			+"id:5,"
+			+"msg:'登录成功'"
+			+ "}";
+	/* 
+	 * 登录失败后，不继续执行剩余的filterchain，而是发送响应给客户端，其中包含相应的错误信息
+	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#onLoginFailure(org.apache.shiro.authc.AuthenticationToken, org.apache.shiro.authc.AuthenticationException, javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	protected boolean onLoginFailure(AuthenticationToken token,
+			AuthenticationException e, ServletRequest request,
+			ServletResponse response) {
+		// TODO Auto-generated method stub
+		  HttpServletRequest httpRequst = WebUtils.toHttp(request);
+	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
+	      httpResponse.setCharacterEncoding("utf-8");
+	      httpResponse.setStatus(HttpServletResponse.SC_OK);
+      	httpResponse.setContentType("application/json");
+      	
+	      try {
+			PrintWriter out = httpResponse.getWriter();
+			if(e instanceof UnknownAccountException){
+				out.print(this.UNKNOWN_ACCOUNT);
+			}else if(e instanceof IncorrectCredentialsException){
+				out.print(this.INCORRECT_CREDENTIALS);
+			}else{
+				out.print(UNKNOWN_AUTHENTICATION_ERROR);
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	
+//		登录失败，中断过滤器链
+		return false;
+	}
+	/* 
+	 * 登录成功，不继续执行剩余的filterchain，而是发送响应给客户端，包含登录成功的信息
+	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#onLoginSuccess(org.apache.shiro.authc.AuthenticationToken, org.apache.shiro.subject.Subject, javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	protected boolean onLoginSuccess(AuthenticationToken token,
+			Subject subject, ServletRequest request, ServletResponse response)  {
+		// TODO Auto-generated method stub
+		 HttpServletRequest httpRequst = WebUtils.toHttp(request);
+	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
+	      httpResponse.setCharacterEncoding("utf-8");
+	      httpResponse.setStatus(HttpServletResponse.SC_OK);
+     	httpResponse.setContentType("application/json");
+     	PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.print(this.LOGIN_SUCCESS);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     	
+		return false;
+	}
+	
+	
 }
