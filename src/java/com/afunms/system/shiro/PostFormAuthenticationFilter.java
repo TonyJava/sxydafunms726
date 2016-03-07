@@ -8,6 +8,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -38,14 +40,8 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		return createToken(username, hashedPassword, request, response);
 	}
 
-	private static final String NOT_SUPPORT_GET_LOGINURL = "{"
-			+"id:0,"
-			+"msg:'使用HTTP GET方式登录暂时不被支持'"
-			+ "}";
-	private static final String UNAUTHENTICATED = "{"
-			+"id:1,"
-			+"msg:'未登录，不能访问资源'"
-			+ "}";
+	private static final LoginMessage NOT_SUPPORT_GET_LOGINURL = new LoginMessage(0,"使用HTTP GET方式登录暂时不被支持'");
+	private static final LoginMessage UNAUTHENTICATED = new LoginMessage(2,"未登录，不能访问资源");
 	
 	/*
 	 * (non-Javadoc)
@@ -89,7 +85,7 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
             } else {
             	httpResponse.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
             	httpResponse.setContentType("application/json");
-            	out.print(NOT_SUPPORT_GET_LOGINURL);
+            	out.print(NOT_SUPPORT_GET_LOGINURL+"");
                 return false;
             }
         } else {
@@ -97,28 +93,62 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 //            saveRequestAndRedirectToLogin(request, response);
         	httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         	httpResponse.setContentType("application/json");
-        	out.print(UNAUTHENTICATED);
+        	out.print(UNAUTHENTICATED+"");
             return false;
         }
 	}
-
-	private static final String UNKNOWN_ACCOUNT = "{"
-			+"id:2,"
-			+"msg:'登录的用户名不存在"
-			+ "}";
-	private static final String INCORRECT_CREDENTIALS = "{"
-			+"id:3,"
-			+"msg:'密码错误'"
-			+ "}";
-	private static final String UNKNOWN_AUTHENTICATION_ERROR = "{"
-			+"id:4,"
-			+"msg:'未知的认证错误'"
-			+ "}";
+	private static final LoginMessage LOGIN_SUCCESS = new LoginMessage(2,"登录成功");
+	private static final LoginMessage UNKNOWN_ACCOUNT = new LoginMessage(3,"登录的用户名不存在");
+	private static final LoginMessage INCORRECT_CREDENTIALS = new LoginMessage(4,"密码错误");
+	private static final LoginMessage UNKNOWN_AUTHENTICATION_ERROR = new LoginMessage(5,"未知的认证错误");
 	
-	private static final String LOGIN_SUCCESS = "{"
-			+"id:5,"
-			+"msg:'登录成功'"
-			+ "}";
+	public static  class LoginMessage{
+		
+		
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return JSONObject.fromObject(this).toString();
+		}
+		private int id;
+		private String msg;
+		/**
+		 * @param id
+		 * @param msg
+		 */
+		public LoginMessage(int id, String msg) {
+			super();
+			this.id = id;
+			this.msg = msg;
+		}
+		/**
+		 * @return the id
+		 */
+		public int getId() {
+			return id;
+		}
+		/**
+		 * @param id the id to set
+		 */
+		public void setId(int id) {
+			this.id = id;
+		}
+		/**
+		 * @return the msg
+		 */
+		public String getMsg() {
+			return msg;
+		}
+		/**
+		 * @param msg the msg to set
+		 */
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+	
+	}
 	/* 
 	 * 登录失败后，不继续执行剩余的filterchain，而是发送响应给客户端，其中包含相应的错误信息
 	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#onLoginFailure(org.apache.shiro.authc.AuthenticationToken, org.apache.shiro.authc.AuthenticationException, javax.servlet.ServletRequest, javax.servlet.ServletResponse)
@@ -137,11 +167,11 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	      try {
 			PrintWriter out = httpResponse.getWriter();
 			if(e instanceof UnknownAccountException){
-				out.print(this.UNKNOWN_ACCOUNT);
+				out.print(this.UNKNOWN_ACCOUNT+"");
 			}else if(e instanceof IncorrectCredentialsException){
-				out.print(this.INCORRECT_CREDENTIALS);
+				out.print(this.INCORRECT_CREDENTIALS+"");
 			}else{
-				out.print(UNKNOWN_AUTHENTICATION_ERROR);
+				out.print(this.UNKNOWN_AUTHENTICATION_ERROR+"");
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
