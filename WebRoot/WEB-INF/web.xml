@@ -144,7 +144,14 @@
     <servlet-class>com.afunms.event.manage.servlet.QuestionDetailServlet</servlet-class>
   </servlet>
 
-
+	<servlet>
+		<servlet-name>topPageDataServlet</servlet-name>
+		<servlet-class>com.afunms.soa.common.TopPageDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>topPageDataServlet</servlet-name>
+		<url-pattern>/common/top</url-pattern>
+	</servlet-mapping>
  <servlet-mapping>
   <servlet-name>armChartServlet</servlet-name>
   <url-pattern>/armChartServlet</url-pattern>

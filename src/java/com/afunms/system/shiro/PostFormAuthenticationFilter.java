@@ -73,7 +73,7 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	      }
 	/*      没有登录过，如果是登录操作（loginURL上的POST请求），则登录
 	      如果不是登录页面的POST请求（loginURL上的get请求），则拒绝提供服务，发送501响应*/
-	      HttpServletRequest httpRequst = WebUtils.toHttp(request);
+	      HttpServletRequest httpRequest = WebUtils.toHttp(request);
 	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
 	      httpResponse.setCharacterEncoding("utf-8");
 	      PrintWriter out = httpResponse.getWriter();
