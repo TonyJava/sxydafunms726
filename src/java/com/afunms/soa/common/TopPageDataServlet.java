@@ -36,6 +36,7 @@ public class TopPageDataServlet extends HttpServlet {
 		menu.put("roleFunction", session.getAttribute("roleFunction"));
 		
 		out.print(JSONObject.fromObject(menu).toString());
+		out.flush();
 	}
 
 }
