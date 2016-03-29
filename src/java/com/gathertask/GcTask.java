@@ -4,14 +4,14 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.TimerTask;
 
-import com.database.DBManager;
-import com.gathertask.dao.TaskResDao;
 import com.afunms.alarm.util.AlarmIndicatorsUtil;
 import com.afunms.common.util.ShareData;
 import com.afunms.common.util.ShareDataLsf;
 import com.afunms.config.dao.PortconfigDao;
 import com.afunms.config.model.Portconfig;
 import com.afunms.polling.loader.HostLoader;
+import com.database.DBManager;
+import com.gathertask.dao.TaskResDao;
 
 public class GcTask extends TimerTask{
 	@Override

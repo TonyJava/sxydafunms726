@@ -18,8 +18,6 @@ import com.afunms.application.model.PlotConfig;
 import com.afunms.common.base.BaseDao;
 import com.afunms.common.base.BaseVo;
 import com.afunms.common.base.DaoInterface;
-import com.afunms.common.util.*;
-import com.afunms.system.model.User;
 
 public class PlotConfigDao extends BaseDao implements DaoInterface {
 

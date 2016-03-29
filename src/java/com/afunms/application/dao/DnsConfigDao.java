@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Vector;
 
 import com.afunms.application.model.DnsConfig;
-import com.afunms.application.model.FTPConfig;
-import com.afunms.application.model.WebConfig;
 import com.afunms.common.base.BaseDao;
 import com.afunms.common.base.BaseVo;
 import com.afunms.common.base.DaoInterface;

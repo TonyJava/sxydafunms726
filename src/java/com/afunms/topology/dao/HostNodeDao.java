@@ -22,7 +22,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.afunms.common.base.BaseDao;
 import com.afunms.common.base.BaseVo;
 import com.afunms.common.base.DaoInterface;
-import com.afunms.common.util.CreateTableManager;
 import com.afunms.common.util.SnmpUtil;
 import com.afunms.common.util.SysLogger;
 import com.afunms.polling.base.Node;

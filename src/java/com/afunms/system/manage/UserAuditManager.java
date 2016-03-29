@@ -8,27 +8,16 @@
 
 package com.afunms.system.manage;
 
-import com.afunms.system.dao.*;
-import com.afunms.application.dao.*;
-import com.afunms.application.model.*;
-import com.afunms.common.base.*;
-import com.afunms.common.util.*;
-import com.afunms.system.model.User;
-import com.afunms.system.model.SysLog;
-import com.afunms.system.model.UserAudit;
-import com.afunms.common.util.SessionConstant;
-import com.afunms.common.util.SysUtil;
-import com.afunms.event.dao.*;
-import com.afunms.event.model.*;
-import com.afunms.topology.model.HostNode;
-import com.afunms.topology.dao.HostNodeDao;
-import wfm.encode.MD5;
-
-import com.afunms.config.model.Business;
-import com.afunms.config.dao.BusinessDao;
-
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+
+import com.afunms.common.base.BaseManager;
+import com.afunms.common.base.ErrorMessage;
+import com.afunms.common.base.ManagerInterface;
+import com.afunms.system.dao.UserAuditDao;
+import com.afunms.system.dao.UserDao;
+import com.afunms.system.model.UserAudit;
 
 public class UserAuditManager extends BaseManager implements ManagerInterface
 {

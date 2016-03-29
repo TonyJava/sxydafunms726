@@ -12,12 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.afunms.common.base.BaseManager;
-import com.afunms.common.base.DaoInterface;
 import com.afunms.common.base.ErrorMessage;
 import com.afunms.common.base.ManagerInterface;
 import com.afunms.system.dao.RoleDao;
 import com.afunms.system.dao.SmsConfigDao;
-import com.afunms.system.model.Role;
 import com.afunms.system.model.SmsConfig;
 
 
