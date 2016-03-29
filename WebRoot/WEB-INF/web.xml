@@ -18,6 +18,8 @@
 	<listener-class>com.cn.dhcc.util.license.listener.LicenseListener</listener-class>
  </listener>
 
+<!-- shiro验证 权限管理 -->
+	
 	<filter>
 		<filter-name>ShiroFilter</filter-name>
 		<filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
@@ -50,7 +52,7 @@
             <param-name>services.configuration.file</param-name>
             <param-value>/WEB-INF/flex/services-config.xml</param-value>
        </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>MessageBrokerServlet</servlet-name>
@@ -144,7 +146,7 @@
     <servlet-class>com.afunms.event.manage.servlet.QuestionDetailServlet</servlet-class>
   </servlet>
 
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>topPageDataServlet</servlet-name>
 		<servlet-class>com.afunms.soa.common.TopPageDataServlet</servlet-class>
 	</servlet>
@@ -155,7 +157,7 @@
  <servlet-mapping>
   <servlet-name>armChartServlet</servlet-name>
   <url-pattern>/armChartServlet</url-pattern>
- </servlet-mapping>
+ </servlet-mapping> -->
  
  
   <servlet-mapping>
@@ -170,6 +172,21 @@
     <servlet-name>questionDetailServlet</servlet-name>
     <url-pattern>/questionDetailServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <!-- springmvc default controller -->
+  <servlet>
+   <servlet-name>dispatcher</servlet-name>
+   <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+   <load-on-startup>1</load-on-startup>
+ </servlet>
+
+ <servlet-mapping>
+   <servlet-name>dispatcher</servlet-name>
+   <url-pattern>/*</url-pattern>
+ </servlet-mapping>
+
+  
   <session-config>
     <session-timeout>1800</session-timeout> 
   </session-config>
@@ -180,12 +197,12 @@
   
   <!-- 配置全局错误页面-->
   <!-- errorcode参见ErrorMessage-->
-  <error-page>
+<!--   <error-page>
      <error-code>500</error-code>
      <location>/common/error.jsp?errorcode=500</location>
   </error-page>
   <error-page>
 	   <error-code>404</error-code>
 	   <location>/common/error.jsp?errorcode=404</location>
-  </error-page>  
+  </error-page>  --> 
 </web-app>
