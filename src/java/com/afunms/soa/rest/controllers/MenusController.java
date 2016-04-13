@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/menus")
+@RequestMapping(value="/menus")
 public class MenusController {
 	
 	@RequestMapping(value = "/top", method = RequestMethod.GET, produces = "application/json")

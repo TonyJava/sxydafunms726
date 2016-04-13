@@ -398,6 +398,7 @@ public class UserManager extends BaseManager implements ManagerInterface {
 	
 	return "/common/index.jsp";
     }
+    
     /**
      * 更具查询数据库判断是否需要首页元素集合 
      *<p></P> 
