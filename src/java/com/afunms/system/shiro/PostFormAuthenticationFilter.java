@@ -27,6 +27,43 @@ import com.afunms.system.model.User;
 
 public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 
+	/* 
+	 * 获取将要认证的用户名
+	 * 如果用户名是null，则返回空字符串
+	 */
+	@Override
+	protected String getUsername(ServletRequest request) {
+		// TODO Auto-generated method stub
+        String value = "";
+		 if(request instanceof HttpServletRequest) {
+			 value =  WebUtils.toHttp(request).getParameter(this.getUsernameParam());
+				if(value != null){
+					return value;
+				}
+		 }	
+		 return value;
+	}
+
+	/* 
+	 * 获取将要认证的密码
+	 * 如果密码是null，则返回空字符串
+	 * 
+	 */
+	@Override
+	protected String getPassword(ServletRequest request) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+        String value = "";
+		 if(request instanceof HttpServletRequest) {
+			 value =  WebUtils.toHttp(request).getParameter(this.getPasswordParam());
+				if(value != null){
+					return value;
+				}
+		 }	
+		 return value;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#createToken(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
@@ -36,13 +73,21 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		// TODO Auto-generated method stub
 		 String username = getUsername(request);
 	     String password = getPassword(request);
+	     System.out.println("username="+username+" password="+password);
 		String hashedPassword =  (new Md5Hash(password)).toString().toUpperCase();
 		return createToken(username, hashedPassword, request, response);
 	}
-
-	private static final LoginMessage NOT_SUPPORT_GET_LOGINURL = new LoginMessage(0,"使用HTTP GET方式登录暂时不被支持'");
-	private static final LoginMessage UNAUTHENTICATED = new LoginMessage(2,"未登录，不能访问资源");
 	
+	
+	/* (non-Javadoc)
+	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#isLoginSubmission(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	protected boolean isLoginSubmission(ServletRequest request,
+			ServletResponse response) {
+		// TODO Auto-generated method stub
+        return (request instanceof HttpServletRequest) && WebUtils.toHttp(request).getMethod().equalsIgnoreCase(this.GET_METHOD);
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -71,8 +116,11 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 	    		}
 	    	  return true;
 	      }
-	/*      没有登录过，如果是登录操作（loginURL上的POST请求），则登录
-	      如果不是登录页面的POST请求（loginURL上的get请求），则拒绝提供服务，发送501响应*/
+	/*      没有认证过，如果认证操作（loginURL上的GET请求），则进行认证
+	      如果不是认证操作
+	      1loginURL上的POST请求，则拒绝提供服务，发送400响应
+	      2其他操作，发送401，表示用户没有权限，需要认证
+	      */
 	      HttpServletRequest httpRequest = WebUtils.toHttp(request);
 	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
 	      httpResponse.setCharacterEncoding("utf-8");
@@ -83,7 +131,7 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
                
                 return executeLogin(request, response);
             } else {
-            	httpResponse.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+            	httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             	httpResponse.setContentType("application/json");
             	out.print(NOT_SUPPORT_GET_LOGINURL+"");
                 return false;
@@ -97,7 +145,9 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
             return false;
         }
 	}
-	private static final LoginMessage LOGIN_SUCCESS = new LoginMessage(2,"登录成功");
+	private static final LoginMessage NOT_SUPPORT_GET_LOGINURL = new LoginMessage(0,"使用HTTP POST方式登录暂时不被支持'");
+	private static final LoginMessage UNAUTHENTICATED = new LoginMessage(2,"未登录，不能访问资源");
+
 	private static final LoginMessage UNKNOWN_ACCOUNT = new LoginMessage(3,"登录的用户名不存在");
 	private static final LoginMessage INCORRECT_CREDENTIALS = new LoginMessage(4,"密码错误");
 	private static final LoginMessage UNKNOWN_AUTHENTICATION_ERROR = new LoginMessage(5,"未知的认证错误");
@@ -161,7 +211,7 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		  HttpServletRequest httpRequst = WebUtils.toHttp(request);
 	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
 	      httpResponse.setCharacterEncoding("utf-8");
-	      httpResponse.setStatus(HttpServletResponse.SC_OK);
+	      httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
       	httpResponse.setContentType("application/json");
       	
 	      try {
@@ -191,13 +241,16 @@ public class PostFormAuthenticationFilter extends FormAuthenticationFilter {
 		// TODO Auto-generated method stub
 		 HttpServletRequest httpRequst = WebUtils.toHttp(request);
 	      HttpServletResponse httpResponse = WebUtils.toHttp(response);
+	 
+	      User user = (User)subject.getPrincipal();
+
 	      httpResponse.setCharacterEncoding("utf-8");
 	      httpResponse.setStatus(HttpServletResponse.SC_OK);
      	httpResponse.setContentType("application/json");
      	PrintWriter out;
 		try {
 			out = response.getWriter();
-			out.print(this.LOGIN_SUCCESS);
+			out.print(JSONObject.fromObject(user).toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

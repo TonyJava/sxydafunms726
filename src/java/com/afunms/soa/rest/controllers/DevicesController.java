@@ -96,7 +96,7 @@ public class DevicesController {
 		}
 		
 	}
-	@RequestMapping(value = "/home", method = RequestMethod.GET,produces="application/json")
+	@RequestMapping(value = "/simpleAll", method = RequestMethod.GET,produces="application/json")
 	public List<SimpleDevice> getSimpleDevicesForHomePage() {
 /*
  部分变量命名不符合命名惯例，旧代码迁移过来，目前不是关注重点

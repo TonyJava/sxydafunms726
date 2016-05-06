@@ -31,7 +31,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>ShiroFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/api/rest/*</url-pattern>
 	</filter-mapping>
 	
 <!--   <filter>
